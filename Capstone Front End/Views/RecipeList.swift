@@ -19,6 +19,18 @@ struct RecipeList: View {
                 }
             }
             .navigationTitle("Recipe List")
+            .toolbar{
+                ToolbarItemGroup(placement:.bottomBar){
+                    Spacer()
+                    Button("Back"){
+                        print("pressed")
+                    }
+                    Spacer()
+                    Button("Home"){
+                        print("pressed")
+                    }
+                    Spacer()
+                }
         }
     }
 }
@@ -27,4 +39,5 @@ struct RecipeList_Previews: PreviewProvider {
     static var previews: some View {
         RecipeList()
     }
+}
 }

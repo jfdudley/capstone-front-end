@@ -1,0 +1,30 @@
+[
+    {
+        "moldId" : 1,
+        "wellShape" : "Scalloped Circle",
+        "wellVolume" : 100,
+        "numWells" : 4,
+        "source" : "Brambleberry.com"
+    },
+    {
+        "moldId" : 2,
+        "wellShape" : "Rectangle",
+        "wellVolume" : 100,
+        "numWells" : 4,
+        "source" : "Brambleberry.com"
+    },
+    {
+        "moldId" : 3,
+        "wellShape" : "Oval",
+        "wellVolume" : 30,
+        "numWells" : 12,
+        "source" : "Brambleberry.com"
+    },
+    {
+        "moldId" : 4,
+        "wellShape" : "Succulent",
+        "wellVolume" : 75,
+        "numWells" : 4,
+        "source" : "Brambleberry.com"
+    }
+]

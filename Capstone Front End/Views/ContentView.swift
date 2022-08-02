@@ -11,7 +11,31 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        RecipeList()
+        
+        NavigationView {
+            VStack {
+                Text("Welcome to the DIY Skincare App").padding()
+                Spacer()
+                NavigationLink(destination: RecipeList()){
+                    Text("See All Recipes")
+                }
+                Spacer()
+                Spacer()
+                
+            }.toolbar{
+                ToolbarItemGroup(placement:.bottomBar){
+                    Spacer()
+                    Button("Back"){
+                        print("pressed")
+                    }
+                    Spacer()
+                    Button("Home"){
+                        print("pressed")
+                    }
+                    Spacer()
+                }
+            }
+        }
         
     }
 }
