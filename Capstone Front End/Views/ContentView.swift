@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
     var body: some View {
-        Text("Testing committing from Xcode")
-            .padding()
+        Text("Hello, world!")
+        
     }
 }
 

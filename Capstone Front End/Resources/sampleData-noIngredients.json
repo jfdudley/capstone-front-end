@@ -1,0 +1,50 @@
+[
+    {
+        "recipeId" : 1,
+        "recipeName" : "Solid Lotion",
+        "recipeDescription" : "A basic lotion recipe for dry skin",
+        "category" : "Moisturiser",
+        "location" : "Body",
+        "recipeInstructions" : [
+            "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
+            "2. Stir well and remove from heat",
+            "3. Pour into mold and allow to cool overnight until solid"
+        ]
+    },
+    {
+        "recipeId" : 2,
+        "recipeName" : "Solid Cleanser",
+        "recipeDescription" : "A gentle cleanser recipe",
+        "category" : "Cleanser",
+        "location" : "Face",
+        "recipeInstructions" : [
+            "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
+            "2. Stir well and remove from heat",
+            "3. Pour into mold and allow to cool overnight until solid"
+        ]
+    },
+    {
+        "recipeId" : 3,
+        "recipeName" : "Sugar Scrub",
+        "recipeDescription" : "A wash off exfoliant",
+        "category" : "Scrub",
+        "location" : "Body",
+        "recipeInstructions" : [
+            "1. Mix ingredients well with wisk",
+            "2. Store in airtight container",
+            "3. Add more liquid ingredients for a thinner consistency"
+        ]
+    },
+    {
+        "recipeId" : 4,
+        "recipeName" : "Basic Lip Balm",
+        "recipeDescription" : "A simple lip moisturiser",
+        "category" : "Moisturiser",
+        "location" : "Lips",
+        "recipeInstructions" : [
+            "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
+            "2. Stir well and remove from heat",
+            "3. Pour into tins or lip balm tubes and allow to cool overnight until solid"
+        ]
+    },
+]
