@@ -8,6 +8,7 @@
 import Foundation
 
 struct Recipe: Hashable, Codable {
+    
     var recipeId : Int
     var recipeName: String
     var recipeDescription: String

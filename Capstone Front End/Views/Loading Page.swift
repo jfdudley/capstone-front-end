@@ -11,7 +11,7 @@ struct Loading_Page: View {
 
     
     var body: some View {
-        Image("Loading Image").resizable().scaledToFill()
+        Image("Loading Image").resizable().scaledToFill().ignoresSafeArea()
     };
     }
 
