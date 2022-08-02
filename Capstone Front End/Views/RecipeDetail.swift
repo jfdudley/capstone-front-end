@@ -22,9 +22,13 @@ struct RecipeDetail: View {
                 }.font(.subheadline).foregroundColor(.secondary)
                 Divider()
                 Text(recipe.recipeDescription).font(.title2)
-                Text("Ingredient info goes here")
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
+                ForEach(recipe.ingredientInfo, id: \.self){
+                    ingredient in
+                    Text("\(ingredient.percentage)g \(ingredient.ingredientName)")
+                }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 41.0)
+                    .padding(6.0)
                 ForEach(recipe.recipeInstructions, id: \.self) {
                     instruction in
                     Text(instruction).padding()

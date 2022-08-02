@@ -7,7 +7,7 @@
 
 import Foundation
 
-var recipes: [Recipe] = load("sampleData-noIngredients.json")
+var recipes: [Recipe] = load("sampleData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

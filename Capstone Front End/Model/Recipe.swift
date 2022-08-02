@@ -14,13 +14,13 @@ struct Recipe: Hashable, Codable {
     var recipeDescription: String
     var category: String
     var location: String
-//    var ingredientInfo: Array<ingredients>
+    var ingredientInfo: Array<ingredients>
     var recipeInstructions: Array<String>
 
-//    struct ingredients: Hashable, Codable {
-//        var ingredientId: Int
-//        var ingredientName: String
-//        var percentage: Int
+    struct ingredients: Hashable, Codable {
+        var ingredientId: Int
+        var ingredientName: String
+        var percentage: Int
     }
 
-//}
+}
