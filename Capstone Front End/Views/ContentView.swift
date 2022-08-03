@@ -9,33 +9,32 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State var isActive = true
+    @StateObject var apiManager = APIManager()
+    @State var recipes: [Recipe] = []
+    @State var molds: [Mold] = []
     
     var body: some View {
-        
-        NavigationView {
-            VStack {
-                Text("Welcome to the DIY Skincare App").padding()
-                Spacer()
-                NavigationLink(destination: RecipeList()){
-                    Text("See All Recipes")
-                }
-                Spacer()
-                Spacer()
-                
-            }.toolbar{
-                ToolbarItemGroup(placement:.bottomBar){
+        if !recipes.isEmpty && !molds.isEmpty{
+            NavigationView {
+                VStack {
+                    Text("Welcome to the DIY Skincare App").padding()
                     Spacer()
-                    Button("Back"){
-                        print("pressed")
-                    }
+                    NavigationLink(destination: RecipeList(rootIsActive: self.$isActive, recipes: self.$recipes, molds: self.$molds), isActive: self.$isActive){
+                        Text("See All Recipes")
+                    }.isDetailLink(false)
                     Spacer()
-                    Button("Home"){
-                        print("pressed")
-                    }
                     Spacer()
                 }
             }
         }
+        else {
+            Loading_Page().task {
+                    recipes = await apiManager.getAllRecipes()
+                    molds = await apiManager.getAllMolds()
+            }
+        }
+        
         
     }
 }

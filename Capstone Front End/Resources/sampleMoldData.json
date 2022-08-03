@@ -1,30 +1,23 @@
 [
     {
-        "moldId" : 1,
-        "wellShape" : "Scalloped Circle",
-        "wellVolume" : 100,
-        "numWells" : 4,
+        "mold_id" : 1,
+        "well_shape" : "Scalloped Circle",
+        "well_volume_grams" : 100,
+        "num_wells" : 4,
         "source" : "Brambleberry.com"
     },
     {
-        "moldId" : 2,
-        "wellShape" : "Rectangle",
-        "wellVolume" : 100,
-        "numWells" : 4,
+        "mold_id" : 2,
+        "well_shape" : "Oval",
+        "well_volume_grams" : 30,
+        "num_wells" : 12,
         "source" : "Brambleberry.com"
     },
     {
-        "moldId" : 3,
-        "wellShape" : "Oval",
-        "wellVolume" : 30,
-        "numWells" : 12,
-        "source" : "Brambleberry.com"
-    },
-    {
-        "moldId" : 4,
-        "wellShape" : "Succulent",
-        "wellVolume" : 75,
-        "numWells" : 4,
+        "mold_id" : 3,
+        "well_shape" : "Rectangle",
+        "well_volume_grams" : 100,
+        "num_wells" : 4,
         "source" : "Brambleberry.com"
     }
 ]

@@ -1,115 +1,115 @@
 [
     {
-        "recipeId" : 1,
-        "recipeName" : "Solid Lotion",
-        "recipeDescription" : "A basic lotion recipe for dry skin",
+        "recipe_id" : 1,
+        "recipe_name" : "Solid Lotion",
+        "recipe_description" : "A basic lotion recipe for dry skin",
         "category" : "Moisturiser",
         "location" : "Body",
-        "ingredientInfo": [
+        "ingredient_info": [
             {
-                "ingredientId": 1,
-                "ingredientName": "Beeswax",
+                "ingredient_id": 1,
+                "ingredient_name": "Beeswax",
                 "percentage": 33
             },
             {
-                "ingredientId": 2,
-                "ingredientName": "Shea Butter",
+                "ingredient_id": 2,
+                "ingredient_name": "Shea Butter",
                 "percentage": 33
             },
             {
-                "ingredientId": 3,
-                "ingredientName": "Almond Oil",
+                "ingredient_id": 3,
+                "ingredient_name": "Almond Oil",
                 "percentage": 33
             }
         ],
-        "recipeInstructions" : [
+        "recipe_instructions" : [
             "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
             "2. Stir well and remove from heat",
             "3. Pour into mold and allow to cool overnight until solid"
         ]
     },
     {
-        "recipeId" : 2,
-        "recipeName" : "Solid Cleanser",
-        "recipeDescription" : "A gentle cleanser recipe",
+        "recipe_id" : 2,
+        "recipe_name" : "Solid Cleanser",
+        "recipe_description" : "A gentle cleanser recipe",
         "category" : "Cleanser",
         "location" : "Face",
-        "ingredientInfo": [
+        "ingredient_info": [
             {
-                "ingredientId": 4,
-                "ingredientName": "Rice Bran Wax",
+                "ingredient_id": 4,
+                "ingredient_name": "Rice Bran Wax",
                 "percentage": 33
             },
             {
-                "ingredientId": 5,
-                "ingredientName": "Cocoa Butter",
+                "ingredient_id": 5,
+                "ingredient_name": "Cocoa Butter",
                 "percentage": 33
             },
             {
-                "ingredientId": 6,
-                "ingredientName": "Hazelnut Oil",
+                "ingredient_id": 6,
+                "ingredient_name": "Hazelnut Oil",
                 "percentage": 33
             }
         ],
-        "recipeInstructions" : [
+        "recipe_instructions" : [
             "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
             "2. Stir well and remove from heat",
             "3. Pour into mold and allow to cool overnight until solid"
         ]
     },
     {
-        "recipeId" : 3,
-        "recipeName" : "Sugar Scrub",
-        "recipeDescription" : "A wash off exfoliant",
+        "recipe_id" : 3,
+        "recipe_name" : "Sugar Scrub",
+        "recipe_description" : "A wash off exfoliant",
         "category" : "Scrub",
         "location" : "Body",
-        "ingredientInfo": [
+        "ingredient_info": [
             {
-                "ingredientId": 7,
-                "ingredientName": "Vegetable Glycerine",
+                "ingredient_id": 7,
+                "ingredient_name": "Vegetable Glycerine",
                 "percentage": 20
             },
             {
-                "ingredientId": 8,
-                "ingredientName": "White Sugar",
+                "ingredient_id": 8,
+                "ingredient_name": "White Sugar",
                 "percentage": 70
             },
             {
-                "ingredientId": 9,
-                "ingredientName": "Honey",
+                "ingredient_id": 9,
+                "ingredient_name": "Honey",
                 "percentage": 10
             }
         ],
-        "recipeInstructions" : [
+        "recipe_instructions" : [
             "1. Mix ingredients well with wisk",
             "2. Store in airtight container",
             "3. Add more liquid ingredients for a thinner consistency"
         ]
     },
     {
-        "recipeId" : 4,
-        "recipeName" : "Basic Lip Balm",
-        "recipeDescription" : "A simple lip moisturiser",
+        "recipe_id" : 4,
+        "recipe_name" : "Basic Lip Balm",
+        "recipe_description" : "A simple lip moisturiser",
         "category" : "Moisturiser",
         "location" : "Lips",
-        "ingredientInfo": [
+        "ingredient_info": [
             {
-                "ingredientId": 1,
-                "ingredientName": "Beeswax",
+                "ingredient_id": 1,
+                "ingredient_name": "Beeswax",
                 "percentage": 20
             },
             {
-                "ingredientId": 5,
-                "ingredientName": "Cocoa Butter",
+                "ingredient_id": 5,
+                "ingredient_name": "Cocoa Butter",
                 "percentage": 40
             },
             {
-                "ingredientId": 3,
-                "ingredientName": "Almond Oil",
+                "ingredient_id": 3,
+                "ingredient_name": "Almond Oil",
                 "percentage": 40
             }
         ],
-        "recipeInstructions" : [
+        "recipe_instructions" : [
             "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
             "2. Stir well and remove from heat",
             "3. Pour into tins or lip balm tubes and allow to cool overnight until solid"

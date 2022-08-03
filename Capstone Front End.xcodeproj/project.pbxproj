@@ -18,6 +18,7 @@
 		05429DE22899ECFC001BDBEB /* Mold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE12899ECFC001BDBEB /* Mold.swift */; };
 		05429DE42899EE05001BDBEB /* MoldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE32899EE05001BDBEB /* MoldRow.swift */; };
 		05429DE62899EF6C001BDBEB /* MoldList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE52899EF6C001BDBEB /* MoldList.swift */; };
+		05429DE8289AF166001BDBEB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE7289AF166001BDBEB /* APIManager.swift */; };
 		05A5377728986D2100BF2E0C /* Capstone_Front_EndApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5377628986D2100BF2E0C /* Capstone_Front_EndApp.swift */; };
 		05A5377928986D2100BF2E0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5377828986D2100BF2E0C /* ContentView.swift */; };
 		05A5377B28986D2700BF2E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A5377A28986D2700BF2E0C /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		05429DE12899ECFC001BDBEB /* Mold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mold.swift; sourceTree = "<group>"; };
 		05429DE32899EE05001BDBEB /* MoldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldRow.swift; sourceTree = "<group>"; };
 		05429DE52899EF6C001BDBEB /* MoldList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldList.swift; sourceTree = "<group>"; };
+		05429DE7289AF166001BDBEB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		05A5377328986D2100BF2E0C /* Capstone Front End.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Front End.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A5377628986D2100BF2E0C /* Capstone_Front_EndApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_Front_EndApp.swift; sourceTree = "<group>"; };
 		05A5377828986D2100BF2E0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				051462B12899BF2300A531D1 /* Recipe.swift */,
 				051462B32899C04600A531D1 /* ModelData.swift */,
 				05429DE12899ECFC001BDBEB /* Mold.swift */,
+				05429DE7289AF166001BDBEB /* APIManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05429DE8289AF166001BDBEB /* APIManager.swift in Sources */,
 				05A5377928986D2100BF2E0C /* ContentView.swift in Sources */,
 				05429DE22899ECFC001BDBEB /* Mold.swift in Sources */,
 				051462942898A98E00A531D1 /* Loading Page.swift in Sources */,

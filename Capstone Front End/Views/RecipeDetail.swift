@@ -9,12 +9,14 @@ import SwiftUI
 
 struct RecipeDetail: View {
     var recipe: Recipe
+    @Binding var molds: [Mold]
+    
+//    @Binding var prevIsActive: Bool
     
     var body: some View {
-        NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text(recipe.recipeName)
+                    Text(recipe.name)
                         .font(.title)
                     HStack {
                         Text(recipe.location)
@@ -23,29 +25,26 @@ struct RecipeDetail: View {
                         Spacer()
                     }.font(.subheadline).foregroundColor(.secondary)
                     Divider()
-                    Text(recipe.recipeDescription).font(.title3)
+                    Text(recipe.description).font(.title3)
                     NavigationLink{
-                        MoldList()
+                        MoldList(molds: $molds)
                         
                     } label: {
                         Text("Choose Molds Here")
                     }
-                    ForEach(recipe.ingredientInfo, id: \.self){
+                    ForEach(recipe.ingredients, id: \.self){
                         ingredient in
-                        Text("\(ingredient.percentage)g \(ingredient.ingredientName)")
+                        Text("\(ingredient.percentage)g \(ingredient.name)")
                     }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 41.0)
                         .padding(6.0)
-                    ForEach(recipe.recipeInstructions, id: \.self) {
+                    ForEach(recipe.instructions, id: \.self) {
                         instruction in
                         Text(instruction).padding()
                     }
                 }.padding()
             }
-        }
-        .navigationTitle(recipe.recipeName)
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar{
             ToolbarItemGroup(placement:.bottomBar){
                 Spacer()
@@ -53,9 +52,9 @@ struct RecipeDetail: View {
                     print("pressed")
                 }
                 Spacer()
-                Button("Home"){
-                    print("pressed")
-                }
+//                Button (action: { self.prevIsActive = false } ){
+//                    Text("Home")
+//                }
                 Spacer()
             }
     }
@@ -65,7 +64,9 @@ struct RecipeDetail: View {
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetail(recipe: recipes[0])
+       
+//        RecipeDetail(recipe: recipes[0], prevIsActive: .constant(false))
+        RecipeDetail(recipe: previewRecipes[0], molds: .constant(previewMolds))
     }
 }
 }

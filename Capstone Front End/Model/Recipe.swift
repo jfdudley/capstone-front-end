@@ -7,20 +7,40 @@
 
 import Foundation
 
+struct RecipeResponse : Hashable, Codable {
+    var recipeResponse : [Recipe]
+}
+
+
 struct Recipe: Hashable, Codable {
     
-    var recipeId : Int
-    var recipeName: String
-    var recipeDescription: String
+    var id : Int
+    var name: String
+    var description: String
     var category: String
     var location: String
-    var ingredientInfo: Array<ingredients>
-    var recipeInstructions: Array<String>
+    var ingredients: [Ingredients]
+    var instructions: [String]
 
-    struct ingredients: Hashable, Codable {
-        var ingredientId: Int
-        var ingredientName: String
+    struct Ingredients: Hashable, Codable {
+        var id: Int
+        var name: String
         var percentage: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case id = "ingredient_id"
+            case name = "ingredient_name"
+            case percentage
+        }
     }
-
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "recipe_id"
+        case name = "recipe_name"
+        case description = "recipe_description"
+        case category
+        case location
+        case ingredients = "ingredient_info"
+        case instructions = "instructions"
+    }
 }

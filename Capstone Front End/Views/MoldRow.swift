@@ -23,8 +23,8 @@ struct MoldRow: View {
 struct MoldRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MoldRow(mold: molds[0])
-            MoldRow(mold: molds[1])
+            MoldRow(mold: previewMolds[0])
+            MoldRow(mold: previewMolds[1])
         }.previewLayout(.fixed(width:300, height: 70))
     }
 }

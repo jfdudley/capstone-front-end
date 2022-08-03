@@ -13,17 +13,18 @@ struct RecipeRow: View {
     var body: some View {
         HStack {
             Image(systemName:"seal")
-            Text(recipe.recipeName)
+            Text(recipe.name)
             Spacer()
         }
     }
 }
 
 struct RecipeRow_Previews: PreviewProvider {
-    static var previews: some View {
+        static var previews: some View {
+
         Group {
-            RecipeRow(recipe: recipes[0])
-            RecipeRow(recipe: recipes[1])
+            RecipeRow(recipe: previewRecipes[0])
+            RecipeRow(recipe: previewRecipes[1])
         }.previewLayout(.fixed(width:300, height: 70))
     }
 }
