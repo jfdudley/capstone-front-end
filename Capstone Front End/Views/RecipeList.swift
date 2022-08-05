@@ -11,6 +11,7 @@ struct RecipeList: View {
     @Binding var rootIsActive: Bool
     @Binding var recipes : [Recipe]
     @Binding var molds: [Mold]
+    @ObservedObject var moldTracker = MoldTracker()
     
     var body: some View {
         List(recipes, id: \.self) {recipe in
@@ -18,7 +19,7 @@ struct RecipeList: View {
 //                    destination: RecipeDetail(recipe:recipe, prevIsActive: self.$rootIsActive), isActive: self.$rootIsActive) {
 //                    RecipeRow(recipe: recipe)
 //                }.isDetailLink(false)
-            NavigationLink(destination: RecipeDetail(recipe: recipe, molds: $molds)){
+            NavigationLink(destination: RecipeDetail(recipe: recipe, moldTracker: moldTracker, molds: $molds)){
                     RecipeRow(recipe: recipe)}
             }
             .navigationTitle("Recipe List")

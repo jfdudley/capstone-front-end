@@ -8,20 +8,36 @@
 import SwiftUI
 
 struct MoldList: View {
-    @Binding var molds : [Mold]
+    @ObservedObject var moldTracker : MoldTracker
+    @Binding var molds: [Mold]
+    
+    
     var body: some View {
-        List(molds, id: \.self) {mold in
-                MoldRow(mold: mold)
+        VStack {
+            List($molds, id: \.self) {mold in
+                MoldFormStepper(mold: mold, moldTracker: moldTracker)
             }
-            .navigationTitle("Mold List")
-    }
+            Button {
+                moldTracker.totalVolume = 0
+//                molds.forEach { mold in
+//                    mold.resetMoldCount()
+//                }
+            } label: {
+                Text("Reset Total Volume and Counts")
+            }.padding(.bottom, 40)
+        }
+        
+        }
+    
 
     
 
 struct MoldList_Previews: PreviewProvider {
     static var previews: some View {
-        MoldList(molds: .constant(previewMolds))
+        MoldList( moldTracker: MoldTracker(), molds: .constant(previewMolds))
     }
 }
 }
+    
+
 

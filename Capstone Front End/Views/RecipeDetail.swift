@@ -8,66 +8,59 @@
 import SwiftUI
 
 struct RecipeDetail: View {
-    var recipe: Recipe
-    @Binding var molds: [Mold]
     
-//    @Binding var prevIsActive: Bool
+    var recipe: Recipe
+    @ObservedObject var moldTracker : MoldTracker
+    @Binding var molds : [Mold]
+
     
     var body: some View {
             ScrollView {
-                VStack(alignment: .leading) {
-                    Text(recipe.name)
-                        .font(.title)
-                    HStack {
-                        Text(recipe.location)
-                        Spacer()
-                        Text(recipe.category)
-                        Spacer()
-                    }.font(.subheadline).foregroundColor(.secondary)
-                    Divider()
-                    Text(recipe.description).font(.title3)
-                    NavigationLink{
-                        MoldList(molds: $molds)
-                        
-                    } label: {
-                        Text("Choose Molds Here")
+                        VStack(alignment: .leading) {
+                            Text(recipe.name)
+                                .font(.title)
+                            HStack {
+                                Text(recipe.location)
+                                Spacer()
+                                Text(recipe.category)
+                                Spacer()
+                            }.font(.subheadline).foregroundColor(.secondary)
+                            Divider()
+                            Text(recipe.description).font(.title3)
+                            NavigationLink{
+                                MoldList(moldTracker: moldTracker, molds: $molds)
+                                
+                            } label: {
+                                Text("Choose Molds Here")
+                            }.padding()
+                            ForEach(recipe.ingredients, id: \.self){
+                                ingredient in
+                                if moldTracker.totalVolume != 0 {
+                                    let ingredientTotal = moldTracker.getIngredientTotal(percentage: ingredient.percentage)
+                                    Text("\(ingredientTotal)g \(ingredient.name)")}
+                                else {
+                                    Text("\(ingredient.name)")
+                                }
+                            }
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.trailing, 80)
+                                .padding(6.0)
+                            ForEach(recipe.instructions, id: \.self) {
+                                instruction in
+                                Text(instruction).padding()
+                            }
+                        }.padding()
                     }
-                    ForEach(recipe.ingredients, id: \.self){
-                        ingredient in
-                        Text("\(ingredient.percentage)g \(ingredient.name)")
-                    }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 41.0)
-                        .padding(6.0)
-                    ForEach(recipe.instructions, id: \.self) {
-                        instruction in
-                        Text(instruction).padding()
-                    }
-                }.padding()
             }
-        .toolbar{
-            ToolbarItemGroup(placement:.bottomBar){
-                Spacer()
-                Button("Back"){
-                    print("pressed")
-                }
-                Spacer()
-//                Button (action: { self.prevIsActive = false } ){
-//                    Text("Home")
-//                }
-                Spacer()
-            }
-    }
-    }
+        }
     
 
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-       
 //        RecipeDetail(recipe: recipes[0], prevIsActive: .constant(false))
-        RecipeDetail(recipe: previewRecipes[0], molds: .constant(previewMolds))
+        RecipeDetail(recipe: previewRecipes[0], moldTracker: MoldTracker(), molds: .constant(previewMolds))
     }
 }
-}
+
 

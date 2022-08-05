@@ -15,7 +15,6 @@ struct MoldRow: View {
             Image(systemName:"seal")
             Text(mold.wellShape)
             Spacer()
-            Text("\(mold.wellVolume)g each").padding(.trailing, 6.0)
         }
     }
 }

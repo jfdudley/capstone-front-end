@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var isActive = true
+    @State var isActive = false
     @StateObject var apiManager = APIManager()
     @State var recipes: [Recipe] = []
     @State var molds: [Mold] = []
@@ -24,6 +24,12 @@ struct ContentView: View {
                         Text("See All Recipes")
                     }.isDetailLink(false)
                     Spacer()
+                    NavigationLink {
+                        NewMoldForm(molds: $molds, apiManager: apiManager)
+                    } label: {
+                        Text("Create New Mold")
+                    }
+
                     Spacer()
                 }
             }

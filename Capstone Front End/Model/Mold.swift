@@ -11,7 +11,7 @@ struct MoldResponse : Hashable, Codable {
     var moldResponse : [Mold]
 }
 
-struct Mold: Hashable, Codable {
+struct Mold: Hashable, Codable, Identifiable {
     
     var id : Int
     var wellShape: String
@@ -27,4 +27,6 @@ struct Mold: Hashable, Codable {
         case numWells = "num_wells"
         case source
     }
+    
+
 }

@@ -22,7 +22,7 @@
                 "percentage": 33
             }
         ],
-        "recipe_instructions" : [
+        "instructions" : [
             "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
             "2. Stir well and remove from heat",
             "3. Pour into mold and allow to cool overnight until solid"
@@ -51,7 +51,7 @@
                 "percentage": 33
             }
         ],
-        "recipe_instructions" : [
+        "instructions" : [
             "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
             "2. Stir well and remove from heat",
             "3. Pour into mold and allow to cool overnight until solid"
@@ -80,7 +80,7 @@
                 "percentage": 10
             }
         ],
-        "recipe_instructions" : [
+        "instructions" : [
             "1. Mix ingredients well with wisk",
             "2. Store in airtight container",
             "3. Add more liquid ingredients for a thinner consistency"
@@ -109,7 +109,7 @@
                 "percentage": 40
             }
         ],
-        "recipe_instructions" : [
+        "instructions" : [
             "1. Melt ingredients together in a ban-marie over simmering water until fully liquid",
             "2. Stir well and remove from heat",
             "3. Pour into tins or lip balm tubes and allow to cool overnight until solid"

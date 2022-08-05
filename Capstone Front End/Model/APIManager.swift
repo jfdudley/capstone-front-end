@@ -40,4 +40,27 @@ class APIManager: ObservableObject {
         }
     }
     
+    func addNewMold(wellShape: String, wellVolume: Int, numWells: Int, source: String) async throws{
+        let body: [String : Any] = [
+            "well_shape": wellShape,
+            "well_volume_grams": wellVolume,
+            "num_wells": numWells,
+            "source": source
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: body)
+        
+        guard let url=URL(string: "https://diy-skincare-app.herokuapp.com/molds")else{fatalError("Missing URL")}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
+        urlRequest.httpBody = jsonData
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        guard (response as? HTTPURLResponse)?.statusCode == 201 else{
+            fatalError("Error creating entry")
+        }
+    }
+    
+    
 }
