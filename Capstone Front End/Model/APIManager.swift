@@ -8,8 +8,6 @@
 import Foundation
 
 class APIManager: ObservableObject {
-//    @Published var recipes : [Recipe] = []
-//    @Published var molds : [Mold] = []
     
     
     func getAllRecipes() async -> [Recipe] {

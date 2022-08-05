@@ -50,7 +50,7 @@ struct RecipeDetail: View {
                                 Text(instruction).padding()
                             }
                         }.padding()
-                    }
+            }
             }
         }
     

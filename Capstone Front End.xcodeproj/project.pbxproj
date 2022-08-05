@@ -19,8 +19,6 @@
 		05429DE42899EE05001BDBEB /* MoldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE32899EE05001BDBEB /* MoldRow.swift */; };
 		05429DE62899EF6C001BDBEB /* MoldList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE52899EF6C001BDBEB /* MoldList.swift */; };
 		05429DE8289AF166001BDBEB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DE7289AF166001BDBEB /* APIManager.swift */; };
-		05429DEC289B3DD9001BDBEB /* MoldFormStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DEB289B3DD9001BDBEB /* MoldFormStepper.swift */; };
-		05429DEE289B41EE001BDBEB /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DED289B41EE001BDBEB /* CustomStepper.swift */; };
 		05429DF2289C47E3001BDBEB /* Mold-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DF1289C47E3001BDBEB /* Mold-ViewModel.swift */; };
 		05429DF4289C8EC3001BDBEB /* NewMoldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05429DF3289C8EC3001BDBEB /* NewMoldForm.swift */; };
 		05A5377728986D2100BF2E0C /* Capstone_Front_EndApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5377628986D2100BF2E0C /* Capstone_Front_EndApp.swift */; };
@@ -62,8 +60,6 @@
 		05429DE32899EE05001BDBEB /* MoldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldRow.swift; sourceTree = "<group>"; };
 		05429DE52899EF6C001BDBEB /* MoldList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldList.swift; sourceTree = "<group>"; };
 		05429DE7289AF166001BDBEB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		05429DEB289B3DD9001BDBEB /* MoldFormStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldFormStepper.swift; sourceTree = "<group>"; };
-		05429DED289B41EE001BDBEB /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		05429DF1289C47E3001BDBEB /* Mold-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mold-ViewModel.swift"; sourceTree = "<group>"; };
 		05429DF3289C8EC3001BDBEB /* NewMoldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMoldForm.swift; sourceTree = "<group>"; };
 		05A5377328986D2100BF2E0C /* Capstone Front End.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Front End.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +109,6 @@
 				05429DDF2899D4E7001BDBEB /* RecipeRow.swift */,
 				05429DE32899EE05001BDBEB /* MoldRow.swift */,
 				05429DE52899EF6C001BDBEB /* MoldList.swift */,
-				05429DEB289B3DD9001BDBEB /* MoldFormStepper.swift */,
 				05429DF3289C8EC3001BDBEB /* NewMoldForm.swift */,
 			);
 			path = Views;
@@ -126,7 +121,6 @@
 				051462B32899C04600A531D1 /* ModelData.swift */,
 				05429DE12899ECFC001BDBEB /* Mold.swift */,
 				05429DE7289AF166001BDBEB /* APIManager.swift */,
-				05429DED289B41EE001BDBEB /* CustomStepper.swift */,
 				05429DF1289C47E3001BDBEB /* Mold-ViewModel.swift */,
 			);
 			path = Model;
@@ -342,8 +336,6 @@
 				05429DE42899EE05001BDBEB /* MoldRow.swift in Sources */,
 				051462B62899C17900A531D1 /* RecipeDetail.swift in Sources */,
 				05429DF2289C47E3001BDBEB /* Mold-ViewModel.swift in Sources */,
-				05429DEC289B3DD9001BDBEB /* MoldFormStepper.swift in Sources */,
-				05429DEE289B41EE001BDBEB /* CustomStepper.swift in Sources */,
 				051462B22899BF2300A531D1 /* Recipe.swift in Sources */,
 				05429DDE2899D478001BDBEB /* RecipeList.swift in Sources */,
 				05429DE62899EF6C001BDBEB /* MoldList.swift in Sources */,

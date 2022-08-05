@@ -15,13 +15,11 @@ struct MoldList: View {
     var body: some View {
         VStack {
             List($molds, id: \.self) {mold in
-                MoldFormStepper(mold: mold, moldTracker: moldTracker)
+                MoldRow(mold: mold, moldTracker: moldTracker)
             }
             Button {
                 moldTracker.totalVolume = 0
-//                molds.forEach { mold in
-//                    mold.resetMoldCount()
-//                }
+                moldTracker.setMoldCounts(molds: molds)
             } label: {
                 Text("Reset Total Volume and Counts")
             }.padding(.bottom, 40)

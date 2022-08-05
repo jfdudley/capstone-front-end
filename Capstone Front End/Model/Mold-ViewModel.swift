@@ -13,7 +13,7 @@ class MoldTracker: ObservableObject {
     
     func setMoldCounts(molds:[Mold]){
         molds.forEach { mold in
-            self.moldCounts[mold.id] = mold.numWells
+            self.moldCounts[mold.id] = 0
         }
     }
     
