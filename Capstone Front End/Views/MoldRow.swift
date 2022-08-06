@@ -18,18 +18,19 @@ struct MoldRow: View {
             Spacer()
             Text("\(moldTracker.moldCounts[mold.id] ?? 0)")
             Button {
-                moldTracker.decreaseTotalVolume(decrease: mold.wellVolume)
-                moldTracker.moldCounts[mold.id]! -= 1
-                print("decreaseCount total volume: \(moldTracker.totalVolume)")
-                print("decrease count moldCount: \(moldTracker.moldCounts[mold.id]!)")
+                if moldTracker.moldCounts[mold.id]! > 0 {
+                    moldTracker.decreaseTotalVolume(decrease: mold.wellVolume)
+                    moldTracker.moldCounts[mold.id]! -= 1
+                }
+                
             } label: {
                 Image(systemName: "minus")
             }.buttonStyle(PlainButtonStyle())
             Button {
-                moldTracker.increaseTotalVolume(increase: mold.wellVolume)
-                moldTracker.moldCounts[mold.id]! += 1
-                print("increaseCount total volume: \(moldTracker.totalVolume)")
-                print("increaseCount moldCount: \(moldTracker.moldCounts[mold.id]!)")
+                if moldTracker.moldCounts[mold.id]! < mold.numWells {
+                    moldTracker.increaseTotalVolume(increase: mold.wellVolume)
+                    moldTracker.moldCounts[mold.id]! += 1
+                }
             } label: {
                 Image(systemName: "plus")
             }.buttonStyle(PlainButtonStyle())

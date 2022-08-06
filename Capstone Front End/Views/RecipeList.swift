@@ -21,7 +21,8 @@ struct RecipeList: View {
 //                }.isDetailLink(false)
             NavigationLink(destination: RecipeDetail(recipe: recipe, moldTracker: moldTracker, molds: $molds)){
                     RecipeRow(recipe: recipe)}
-        }.onAppear{moldTracker.setMoldCounts(molds: molds)
+        }.onAppear{
+            moldTracker.setMoldCounts(molds: molds)
             moldTracker.totalVolume = 0
         }
             .navigationTitle("Recipe List")

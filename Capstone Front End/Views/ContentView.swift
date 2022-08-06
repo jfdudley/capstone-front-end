@@ -25,11 +25,16 @@ struct ContentView: View {
                     }.isDetailLink(false)
                     Spacer()
                     NavigationLink {
+                        NewRecipeForm(recipes: $recipes, apiManager: apiManager)
+                    } label: {
+                        Text("Create New Recipe")
+                    }
+                    Spacer()
+                    NavigationLink {
                         NewMoldForm(molds: $molds, apiManager: apiManager)
                     } label: {
                         Text("Create New Mold")
                     }
-
                     Spacer()
                 }
             }
