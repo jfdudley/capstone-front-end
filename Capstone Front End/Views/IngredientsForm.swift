@@ -7,22 +7,28 @@
 
 import SwiftUI
 
+
 struct IngredientsForm: View {
     @Binding var ingredients: [String : Double]
     @Binding var ingredientList: [Ingredient]
     @ObservedObject var ingredientTracker: IngredientsTracker
     
+    var numberFormatter = NumberFormatter()
+    
+
+    
+
     var body: some View {
             ScrollView {
                 VStack{
                     ForEach(0..<ingredientTracker.ingredientsCount, id:\.self){num in
                         HStack {
                             Spacer()
-                            TextField("Amount (grams)", value: $ingredientTracker.ingredientAmounts[num], formatter:NumberFormatter()).keyboardType(.numberPad)
-                            VStack {
-                                TextField("Ingredient", text:$ingredientTracker.ingredientNames[num])
-                            }
-                            
+                            TextField("Amount (grams)", text: $ingredientTracker.ingredientAmounts[num]).keyboardType(.numberPad).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                            Text("g")
+                            Spacer()
+                            Spacer()
+                            TextField("Ingredient", text:$ingredientTracker.ingredientNames[num])
                             Spacer()
                         }
                     }.padding()

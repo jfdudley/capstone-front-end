@@ -30,6 +30,7 @@
 		059DEED1289DDD6C0026A7F3 /* InstructionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059DEED0289DDD6C0026A7F3 /* InstructionsTracker.swift */; };
 		059DEED328A03B300026A7F3 /* IngredientsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059DEED228A03B300026A7F3 /* IngredientsTracker.swift */; };
 		059DEED528A046D40026A7F3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059DEED428A046D40026A7F3 /* SwiftUIView.swift */; };
+		059DEEDD28A05C350026A7F3 /* Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059DEEDC28A05C350026A7F3 /* Autocomplete.swift */; };
 		05A5377728986D2100BF2E0C /* Capstone_Front_EndApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5377628986D2100BF2E0C /* Capstone_Front_EndApp.swift */; };
 		05A5377928986D2100BF2E0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5377828986D2100BF2E0C /* ContentView.swift */; };
 		05A5377B28986D2700BF2E0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A5377A28986D2700BF2E0C /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		059DEED0289DDD6C0026A7F3 /* InstructionsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTracker.swift; sourceTree = "<group>"; };
 		059DEED228A03B300026A7F3 /* IngredientsTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTracker.swift; sourceTree = "<group>"; };
 		059DEED428A046D40026A7F3 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		059DEEDC28A05C350026A7F3 /* Autocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocomplete.swift; sourceTree = "<group>"; };
 		05A5377328986D2100BF2E0C /* Capstone Front End.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Front End.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A5377628986D2100BF2E0C /* Capstone_Front_EndApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_Front_EndApp.swift; sourceTree = "<group>"; };
 		05A5377828986D2100BF2E0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				059DEECA289DB5D10026A7F3 /* InstructionsForm.swift */,
 				059DEECC289DB6030026A7F3 /* IngredientsForm.swift */,
 				059DEED428A046D40026A7F3 /* SwiftUIView.swift */,
+				059DEEDC28A05C350026A7F3 /* Autocomplete.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +239,8 @@
 			dependencies = (
 			);
 			name = "Capstone Front End";
+			packageProductDependencies = (
+			);
 			productName = "Capstone Front End";
 			productReference = 05A5377328986D2100BF2E0C /* Capstone Front End.app */;
 			productType = "com.apple.product-type.application";
@@ -308,6 +313,8 @@
 				Base,
 			);
 			mainGroup = 05A5376A28986D2100BF2E0C;
+			packageReferences = (
+			);
 			productRefGroup = 05A5377428986D2100BF2E0C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,6 +366,7 @@
 				059DEECB289DB5D10026A7F3 /* InstructionsForm.swift in Sources */,
 				059DEED328A03B300026A7F3 /* IngredientsTracker.swift in Sources */,
 				059DEED528A046D40026A7F3 /* SwiftUIView.swift in Sources */,
+				059DEEDD28A05C350026A7F3 /* Autocomplete.swift in Sources */,
 				05429DE22899ECFC001BDBEB /* Mold.swift in Sources */,
 				051462942898A98E00A531D1 /* Loading Page.swift in Sources */,
 				05429DE02899D4E7001BDBEB /* RecipeRow.swift in Sources */,

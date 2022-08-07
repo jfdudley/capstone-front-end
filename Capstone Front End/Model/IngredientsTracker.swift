@@ -10,12 +10,12 @@ import Foundation
 class IngredientsTracker: ObservableObject {
     @Published var ingredientsCount : Int = 3
     @Published var ingredientNames : [String] = ["", "", ""]
-    @Published var ingredientAmounts: [Double] = [0.0, 0.0, 0.0]
+    @Published var ingredientAmounts: [String] = ["", "", ""]
     
     func addStep() {
         ingredientsCount += 1
         ingredientNames.append("")
-        ingredientAmounts.append(0.0)
+        ingredientAmounts.append("")
     }
     
     func removeStep() {
@@ -36,7 +36,8 @@ class IngredientsTracker: ObservableObject {
     func convertToDict() -> [String : Double]{
         var returnDict : [String:Double] = [:]
         for num in 0..<self.ingredientsCount{
-                returnDict[ingredientNames[num]] = ingredientAmounts[num]
+                let amountDouble = Double(ingredientAmounts[num])
+                returnDict[ingredientNames[num]] = amountDouble
         }
         return returnDict
     }
@@ -44,7 +45,7 @@ class IngredientsTracker: ObservableObject {
     func resetTracker() {
         ingredientsCount = 3
         ingredientNames = ["", "", ""]
-        ingredientAmounts = [0.0, 0.0, 0.0]
+        ingredientAmounts = ["", "", ""]
         
     }
     
