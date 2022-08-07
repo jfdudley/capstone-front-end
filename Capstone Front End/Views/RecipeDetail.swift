@@ -37,7 +37,14 @@ struct RecipeDetail: View {
                                 ingredient in
                                 if moldTracker.totalVolume != 0 {
                                     let ingredientTotal = moldTracker.getIngredientTotal(percentage: ingredient.percentage)
-                                    Text("\(ingredientTotal)g \(ingredient.name)")}
+                                    if ingredientTotal >= 5.0 {
+                                        let intTotal = Int(ingredientTotal)
+                                        Text("\(intTotal)g \(ingredient.name)")
+                                    } else {
+                                    Text("\(ingredientTotal, specifier: "%.2f")g \(ingredient.name)")
+                                    
+                                    }
+                                }
                                 else {
                                     Text("\(ingredient.name)")
                                 }

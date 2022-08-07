@@ -102,7 +102,7 @@ class APIManager: ObservableObject {
         }
     }
     
-    func addNewRecipe(name: String, description: String, category: String, location: String, instructions: String, ingredients: [String:Int]) async throws{
+    func addNewRecipe(name: String, description: String, category: String, location: String, instructions: String, ingredients: [String:Double]) async throws{
         let body: [String : Any] = [
             "recipe_name": name,
             "recipe_description": description,

@@ -25,7 +25,7 @@ struct Recipe: Hashable, Codable {
     struct Ingredients: Hashable, Codable {
         var id: Int
         var name: String
-        var percentage: Int
+        var percentage: Double
         
         enum CodingKeys: String, CodingKey {
             case id = "ingredient_id"

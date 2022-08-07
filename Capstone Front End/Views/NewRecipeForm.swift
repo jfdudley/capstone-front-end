@@ -17,13 +17,14 @@ struct NewRecipeForm: View {
     @State var databaseCategories : [Category] = []
     @State var databaseLocations : [Location] = []
     @ObservedObject var instructionsTracker = InstructionsTracker()
+    @ObservedObject var ingredientsTracker = IngredientsTracker()
     
     
     @State var name: String = ""
     @State var description: String = ""
     @State var category: String = ""
     @State var location: String = ""
-    @State var ingredients: [String:Int] = [:]
+    @State var ingredients: [String:Double] = [:]
     @State var instructions: String = ""
     
     @State var addStatus: Bool = false
@@ -31,7 +32,7 @@ struct NewRecipeForm: View {
     @State var newLocation: Bool = false
     
     var validateData: Bool {
-        self.name.isEmpty || self.description.isEmpty || self.category.isEmpty || self.location.isEmpty || ingredients.isEmpty || self.ingredients.isEmpty
+        self.name.isEmpty || self.description.isEmpty || self.category.isEmpty || self.location.isEmpty || self.instructions.isEmpty || self.ingredients.isEmpty
     }
     
     func resetState() {
@@ -42,7 +43,7 @@ struct NewRecipeForm: View {
         self.ingredients = [:]
         self.instructions = ""
         instructionsTracker.resetTracker()
-       
+        ingredientsTracker.resetTracker()
     }
     
     
@@ -80,16 +81,16 @@ struct NewRecipeForm: View {
                 Section {
                     if ingredients.isEmpty {
                         NavigationLink {
-                            IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients)
+                            IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients, ingredientTracker: ingredientsTracker)
                         } label: {
                             Text("Add Ingredients")
                         }
                     }
                     else {
-                        Text("Ingredients go here somehow")
+                        Text(ingredientsTracker.convertToString())
                         Divider()
                         NavigationLink {
-                            IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients)
+                            IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients, ingredientTracker: ingredientsTracker)
                         } label: {
                             Text("Edit Ingredients")
                         }

@@ -22,25 +22,28 @@ struct InstructionsForm: View {
                 }.padding()
                 
                 HStack {
+                    Spacer()
                     Button {
                         instructionsTracker.addStep()
                     } label: {
                         Text("Add step")
                     }
+                    Spacer()
                     Button {
                         instructionsTracker.removeStep()
                     } label: {
                         Text("Remove step")
                     }
+                    Spacer()
                 }
-                Divider()
-                Button {
-                    instructions = instructionsTracker.convertToString()
-                    print(instructions)
-                } label: {
-                    Text("Set instructions")
-                }
+                Button{
+                    instructionsTracker.resetTracker()
+                }label: {
+                    Text("Reset instructions")
+                }.padding()
             }
+        }.onDisappear{
+            instructions = instructionsTracker.convertToString()
         }
     }
 }

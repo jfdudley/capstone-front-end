@@ -17,8 +17,9 @@ class MoldTracker: ObservableObject {
         }
     }
     
-    func getIngredientTotal(percentage: Int) -> Int {
-        return Int(Double(self.totalVolume) * (Double(percentage) / 100.0))
+    func getIngredientTotal(percentage: Double) -> Double {
+        let ingredientTotal = (Double(self.totalVolume) * (percentage / 100.0))
+            return ingredientTotal
     }
     
     func increaseTotalVolume(increase: Int) {

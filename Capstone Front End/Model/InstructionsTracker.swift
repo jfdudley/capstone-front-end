@@ -9,7 +9,7 @@ import Foundation
 
 class InstructionsTracker: ObservableObject {
     @Published var numInstructions : Int = 3
-    @Published var instructionsArray = Array<String>(repeating: "", count: 3)
+    @Published var instructionsArray : [String] = ["", "", ""]
     
     func addStep() {
         numInstructions += 1
