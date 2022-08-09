@@ -15,7 +15,7 @@ struct RecipeRow: View {
             Image(systemName:"seal")
             Text(recipe.name)
             Spacer()
-        }
+        }.foregroundColor(Color("BdazzledBlue"))
     }
 }
 

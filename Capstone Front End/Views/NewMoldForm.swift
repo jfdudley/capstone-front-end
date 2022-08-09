@@ -50,7 +50,7 @@ struct NewMoldForm: View {
                     }
 
                 }.disabled(validateData)
-            }
+            }.background(Color("SpanishBistre"))
         }
         else {
             VStack{

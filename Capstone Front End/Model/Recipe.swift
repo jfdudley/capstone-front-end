@@ -41,6 +41,6 @@ struct Recipe: Hashable, Codable {
         case category
         case location
         case ingredients = "ingredient_info"
-        case instructions = "instructions"
+        case instructions
     }
 }

@@ -7,9 +7,6 @@
 
 import Foundation
 
-struct MoldResponse : Hashable, Codable {
-    var moldResponse : [Mold]
-}
 
 struct Mold: Hashable, Codable, Identifiable {
     
@@ -27,6 +24,6 @@ struct Mold: Hashable, Codable, Identifiable {
         case numWells = "num_wells"
         case source
     }
-    
+
 
 }

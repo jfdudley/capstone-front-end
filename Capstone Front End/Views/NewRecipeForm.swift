@@ -47,6 +47,8 @@ struct NewRecipeForm: View {
     }
     
     
+    
+    
     var body: some View {
         if !addStatus {
             Form {
@@ -129,7 +131,8 @@ struct NewRecipeForm: View {
                     }
                     
                 }.disabled(validateData)
-            }.task {
+            }.background(Color("BdazzledBlue"))
+                .task {
                 databaseIngredients = await apiManager.getAllIngredients()
                 databaseCategories = await apiManager.getAllCategories()
                 databaseLocations = await apiManager.getAllLocations()
