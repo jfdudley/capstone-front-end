@@ -10,6 +10,7 @@ import SwiftUI
 struct NewMoldForm: View {
     @Binding var molds: [Mold]
     @StateObject var apiManager: APIManager
+//    @Binding var navText : [Bool]
     
     @State var wellShape: String = ""
     @State var wellVolume: Int = 0
@@ -29,27 +30,30 @@ struct NewMoldForm: View {
     }
     var body: some View {
         if !addStatus {
-            Form {
-                Section {
-                    TextField("Mold well shape", text: $wellShape)
-                    TextField("Well volume, in grams", value: $wellVolume, formatter:NumberFormatter()).keyboardType(.numberPad)
-                    Stepper(value: $numWells){Text("Number of wells: \(numWells)")}
-                    TextField("Source", text: $source)
-        
-                }
-                Section {
-                    Button {
-                        Task {
-                            try await apiManager.addNewMold(wellShape: wellShape, wellVolume: wellVolume, numWells: numWells, source: source)
-                            addStatus.toggle()
-                            resetState()
-                            molds = await apiManager.getAllMolds()
-                        }
-                    } label: {
-                        Text("Add new mold!")
+            VStack {
+                Text("Add a new mold:").font(.title2).foregroundColor(.white)
+                Form {
+                    Section {
+                        TextField("Mold well shape", text: $wellShape)
+                        TextField("Well volume, in grams", value: $wellVolume, formatter:NumberFormatter()).keyboardType(.numberPad)
+                        Stepper(value: $numWells){Text("Number of wells: \(numWells)")}
+                        TextField("Source", text: $source)
+            
                     }
+                    Section {
+                        Button {
+                            Task {
+                                try await apiManager.addNewMold(wellShape: wellShape, wellVolume: wellVolume, numWells: numWells, source: source)
+                                addStatus.toggle()
+                                resetState()
+                                molds = await apiManager.getAllMolds()
+                            }
+                        } label: {
+                            Text("Add mold").fontWeight(.bold)
+                        }
 
-                }.disabled(validateData)
+                    }.frame(minWidth: 0, maxWidth: .infinity, alignment:.center).disabled(validateData)
+                }.foregroundColor(Color("KombuGreen"))
             }.background(Color("SpanishBistre"))
         }
         else {
@@ -63,6 +67,10 @@ struct NewMoldForm: View {
                 Text("Add another mold?")
             }
                 Spacer()
+//            }.onAppear{
+//                navText[1].toggle()
+//            }.onDisappear{
+//                navText[1].toggle()
             }
 
         }
@@ -72,7 +80,7 @@ struct NewMoldForm: View {
 
 struct NewMoldForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager())
+        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager()/*, navText: .constant([false, false])*/)
     }
 }
 }

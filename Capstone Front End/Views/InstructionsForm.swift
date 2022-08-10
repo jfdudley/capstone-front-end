@@ -16,8 +16,8 @@ struct InstructionsForm: View {
             VStack{
                 ForEach(1...instructionsTracker.numInstructions, id:\.self){num in
                     HStack {
-                        Text("\(num).")
-                        TextField("Instructions here", text: $instructionsTracker.instructionsArray[num-1])
+                        Text("\(num).").foregroundColor(.white).fontWeight(.bold)
+                        TextField("Instructions here", text: $instructionsTracker.instructionsArray[num-1]).padding(4.0).background(.white).cornerRadius(7)
                     }
                 }.padding()
                 
@@ -27,22 +27,22 @@ struct InstructionsForm: View {
                         instructionsTracker.addStep()
                     } label: {
                         Text("Add step")
-                    }
+                    }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
                     Spacer()
                     Button {
                         instructionsTracker.removeStep()
                     } label: {
                         Text("Remove step")
-                    }
+                    }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
                     Spacer()
                 }
                 Button{
                     instructionsTracker.resetTracker()
                 }label: {
                     Text("Reset instructions")
-                }.padding()
+                }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10).padding()
             }
-        }.onDisappear{
+        }.background(Color("BdazzledBlue")).onDisappear{
             instructions = instructionsTracker.convertToString()
         }
     }

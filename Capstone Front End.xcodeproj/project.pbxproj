@@ -38,6 +38,7 @@
 		05A5378828986D2700BF2E0C /* Capstone_Front_EndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5378728986D2700BF2E0C /* Capstone_Front_EndTests.swift */; };
 		05A5379228986D2700BF2E0C /* Capstone_Front_EndUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5379128986D2700BF2E0C /* Capstone_Front_EndUITests.swift */; };
 		05A5379428986D2700BF2E0C /* Capstone_Front_EndUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5379328986D2700BF2E0C /* Capstone_Front_EndUITestsLaunchTests.swift */; };
+		05F4839728A4638F00C1EED6 /* MoldCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4839628A4638F00C1EED6 /* MoldCounts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		05A5378D28986D2700BF2E0C /* Capstone Front EndUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone Front EndUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A5379128986D2700BF2E0C /* Capstone_Front_EndUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_Front_EndUITests.swift; sourceTree = "<group>"; };
 		05A5379328986D2700BF2E0C /* Capstone_Front_EndUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_Front_EndUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05F4839628A4638F00C1EED6 /* MoldCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldCounts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				059DEECC289DB6030026A7F3 /* IngredientsForm.swift */,
 				059DEED428A046D40026A7F3 /* SwiftUIView.swift */,
 				059DEEDC28A05C350026A7F3 /* Autocomplete.swift */,
+				05F4839628A4638F00C1EED6 /* MoldCounts.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				05A5377928986D2100BF2E0C /* ContentView.swift in Sources */,
 				05429DFC289D9546001BDBEB /* Ingredient.swift in Sources */,
 				059DEECB289DB5D10026A7F3 /* InstructionsForm.swift in Sources */,
+				05F4839728A4638F00C1EED6 /* MoldCounts.swift in Sources */,
 				059DEED328A03B300026A7F3 /* IngredientsTracker.swift in Sources */,
 				059DEED528A046D40026A7F3 /* SwiftUIView.swift in Sources */,
 				059DEEDD28A05C350026A7F3 /* Autocomplete.swift in Sources */,

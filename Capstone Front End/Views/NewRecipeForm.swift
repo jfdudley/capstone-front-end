@@ -18,6 +18,7 @@ struct NewRecipeForm: View {
     @State var databaseLocations : [Location] = []
     @ObservedObject var instructionsTracker = InstructionsTracker()
     @ObservedObject var ingredientsTracker = IngredientsTracker()
+//    @Binding var navText : [Bool]
     
     
     @State var name: String = ""
@@ -35,6 +36,7 @@ struct NewRecipeForm: View {
         self.name.isEmpty || self.description.isEmpty || self.category.isEmpty || self.location.isEmpty || self.instructions.isEmpty || self.ingredients.isEmpty
     }
     
+    
     func resetState() {
         self.name = ""
         self.description = ""
@@ -51,88 +53,93 @@ struct NewRecipeForm: View {
     
     var body: some View {
         if !addStatus {
-            Form {
-                Section {
-                    TextField("Recipe name", text: $name)
-                    TextField("Recipe description", text: $description)
-                    if !newCategory {
-                        Picker("Select Category", selection: $category){
-                            ForEach(databaseCategories, id: \.self){category in
-                                Text("\(category.name)").tag(category.name)
+            VStack {
+                Text("Add a new recipe:").font(.title2).foregroundColor(.white)
+                Form {
+                    Section {
+                        TextField("Recipe name", text: $name)
+                        TextField("Recipe description", text: $description)
+                        if !newCategory {
+                            Picker("Select Category", selection: $category){
+                                ForEach(databaseCategories, id: \.self){category in
+                                    Text("\(category.name)").tag(category.name)
+                                }
+                            }.pickerStyle(SegmentedPickerStyle())
+                        } else {
+                            TextField("New category name", text: $category)
+                        }
+                        Toggle(isOn: $newCategory) {
+                            Text("Add new category")
+                        }
+                        if !newLocation {
+                            Picker("Select Location", selection: $location){
+                                ForEach(databaseLocations, id: \.self){location in
+                                    Text("\(location.name)").tag(location.name)
+                                }
                             }
-                        }.pickerStyle(SegmentedPickerStyle())
-                    } else {
-                        TextField("New category name", text: $category)
+                                .pickerStyle(SegmentedPickerStyle())
+
+                        } else {
+                            TextField("New location name", text: $location)
+                        }
+                        Toggle(isOn: $newLocation) {
+                            Text("Add new location")
+                        }
                     }
-                    Toggle(isOn: $newCategory) {
-                        Text("Add new category")
-                    }
-                    if !newLocation {
-                        Picker("Select Location", selection: $location){
-                            ForEach(databaseLocations, id: \.self){location in
-                                Text("\(location.name)").tag(location.name)
+                    Section {
+                        if ingredients.isEmpty {
+                            NavigationLink {
+                                IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients, ingredientTracker: ingredientsTracker)
+                            } label: {
+                                Text("Add Ingredients")
                             }
-                        }.pickerStyle(SegmentedPickerStyle())
-                    } else {
-                        TextField("New location name", text: $location)
-                    }
-                    Toggle(isOn: $newLocation) {
-                        Text("Add new location")
-                    }
-                }
-                Section {
-                    if ingredients.isEmpty {
-                        NavigationLink {
-                            IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients, ingredientTracker: ingredientsTracker)
-                        } label: {
-                            Text("Add Ingredients")
+                        }
+                        else {
+                            Text(ingredientsTracker.convertToString())
+                            Divider()
+                            NavigationLink {
+                                IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients, ingredientTracker: ingredientsTracker)
+                            } label: {
+                                Text("Edit Ingredients")
+                            }
                         }
                     }
-                    else {
-                        Text(ingredientsTracker.convertToString())
-                        Divider()
-                        NavigationLink {
-                            IngredientsForm(ingredients:$ingredients, ingredientList: $databaseIngredients, ingredientTracker: ingredientsTracker)
-                        } label: {
-                            Text("Edit Ingredients")
+                    Section {
+                        if instructions.isEmpty {
+                            NavigationLink {
+                                InstructionsForm(instructionsTracker: instructionsTracker, instructions: $instructions)
+                            } label: {
+                                Text("Add Instructions")
+                            }
+                        }
+                        else {
+                            Text("\(instructions)")
+                            Divider()
+                            NavigationLink {
+                                InstructionsForm(instructionsTracker: instructionsTracker, instructions: $instructions )
+                            } label: {
+                                Text("Edit Instructions")
+                            }
+                            
                         }
                     }
-                }
-                Section {
-                    if instructions.isEmpty {
-                        NavigationLink {
-                            InstructionsForm(instructionsTracker: instructionsTracker, instructions: $instructions)
+                    Section {
+                        Button {
+                            Task {
+                                instructions = instructionsTracker.convertToString()
+                                try await apiManager.addNewRecipe(name:name, description: description, category:category, location:location, instructions:instructions, ingredients:ingredients)
+                                addStatus.toggle()
+                                resetState()
+                                recipes = await apiManager.getAllRecipes()
+                            }
                         } label: {
-                            Text("Add Instructions")
-                        }
-                    }
-                    else {
-                        Text("\(instructions)")
-                        Divider()
-                        NavigationLink {
-                            InstructionsForm(instructionsTracker: instructionsTracker, instructions: $instructions )
-                        } label: {
-                            Text("Edit Instructions")
+                            Text("Add recipe").fontWeight(.bold)
                         }
                         
-                    }
-                }
-                Section {
-                    Button {
-                        Task {
-                            instructions = instructionsTracker.convertToString()
-                            try await apiManager.addNewRecipe(name:name, description: description, category:category, location:location, instructions:instructions, ingredients:ingredients)
-                            addStatus.toggle()
-                            resetState()
-                            recipes = await apiManager.getAllRecipes()
-                        }
-                    } label: {
-                        Text("Add new recipe!")
-                    }
-                    
-                }.disabled(validateData)
+                    }.frame(minWidth: 0, maxWidth: .infinity, alignment:.center).disabled(validateData)
+                }.foregroundColor(Color("BdazzledBlue"))
             }.background(Color("BdazzledBlue"))
-                .task {
+            .task {
                 databaseIngredients = await apiManager.getAllIngredients()
                 databaseCategories = await apiManager.getAllCategories()
                 databaseLocations = await apiManager.getAllLocations()
@@ -141,14 +148,17 @@ struct NewRecipeForm: View {
         else {
             VStack{
                 Spacer()
-                Text("Recipe successfully submitted!")
-                Spacer()
+                Text("Recipe successfully submitted!").foregroundColor(Color("BdazzledBlue")).font(.title3)
                 Button {
                     addStatus.toggle()
                 } label: {
                     Text("Add another recipe?")
-                }
+                }.buttonStyle(.bordered).foregroundColor(.white).background(Color("BdazzledBlue")).cornerRadius(10).padding()
                 Spacer()
+//            }.onAppear{
+//                navText[0].toggle()
+//            }.onDisappear{
+//                navText[0].toggle()
             }
             
         }
@@ -157,6 +167,6 @@ struct NewRecipeForm: View {
 
 struct NewRecipeForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewRecipeForm(recipes: .constant(previewRecipes), apiManager: APIManager())
+        NewRecipeForm(recipes: .constant(previewRecipes), apiManager: APIManager()/*, navText: .constant([false, false])*/)
     }
 }

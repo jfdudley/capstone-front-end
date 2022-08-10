@@ -26,16 +26,22 @@ struct RecipeDetail: View {
                                     Spacer()
                                     Text(recipe.category)
                                     Spacer()
-                                }.font(.subheadline).foregroundColor(.secondary)
-                                Divider()
+                                }.font(.subheadline).foregroundColor(Color("Cultured"))
+                                Divider().overlay(Color("Cultured")).padding()
                                 Text(recipe.description).font(.title3)
-                                NavigationLink{
-                                    MoldList(moldTracker: moldTracker, molds: $molds)
-                                    
-                                } label: {
-                                    Text("Choose Molds Here")
-                                }.padding()
-                                ForEach(recipe.ingredients, id: \.self){
+                                
+                                VStack {
+                                    NavigationLink{
+                                        MoldList(moldTracker: moldTracker, molds: $molds)
+                                        
+                                    } label: {
+                                        Text("Choose Molds Here")
+                                    }.buttonStyle(.bordered).background(Color(.white)).cornerRadius(10).foregroundColor(Color("BdazzledBlue")).padding(2).frame(minWidth: 0, maxWidth: .infinity, alignment:.center)
+                                    Text("Ingredient amounts for:").padding(2)
+                                    MoldCounts(molds:$molds, moldTracker:moldTracker)
+                                }.frame(minWidth:0, maxWidth:.infinity).padding().border(Color("Cultured"), width: 1).cornerRadius(5)
+                                
+                                ForEach(recipe.ingredients.sorted{$0.percentage > $1.percentage}, id: \.self){
                                     ingredient in
                                     if moldTracker.totalVolume != 0 {
                                         let ingredientTotal = moldTracker.getIngredientTotal(percentage: ingredient.percentage)
@@ -54,24 +60,23 @@ struct RecipeDetail: View {
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 80)
                                     .padding(6.0)
+                                Divider().overlay(Color("Cultured")).padding()
                                 ForEach(recipe.instructions, id: \.self) {
                                     instruction in
                                     Text(instruction).padding()
                                 }
-                            }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all))
-            }.onAppear{
-                UINavigationBar.appearance().scrollEdgeAppearance?.backgroundColor = .clear
+                            }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(.white)
             }
             .toolbar{
                     ToolbarItemGroup(placement:.bottomBar){
                         Spacer()
                         Button (action: { self.rootIsActive = false } ){
-                            Image(systemName: "house")
+                            Image(systemName: "house").foregroundColor(.white)
                         }
                         
                         Spacer()
                         Button (action: {print("Account button pressed")}){
-                            Image(systemName: "person.crop.circle")
+                            Image(systemName: "person.crop.circle").foregroundColor(.white)
                         }
                         Spacer()
                     }

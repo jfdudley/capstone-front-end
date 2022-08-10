@@ -11,8 +11,7 @@ struct Loading_Page: View {
 
     
     var body: some View {
-        Image("Loading Image").resizable().scaledToFill().ignoresSafeArea()
-    };
+        Image("Loading Image").resizable().aspectRatio(contentMode: .fill).frame(minWidth:0, maxWidth: .infinity,alignment: .center).edgesIgnoringSafeArea(.all)
     }
 
 
@@ -20,4 +19,5 @@ struct Loading_Page_Previews: PreviewProvider {
     static var previews: some View {
         Loading_Page()
     }
+}
 }

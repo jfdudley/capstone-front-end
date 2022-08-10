@@ -14,9 +14,6 @@ struct IngredientsForm: View {
     @ObservedObject var ingredientTracker: IngredientsTracker
     
     var numberFormatter = NumberFormatter()
-    
-
-    
 
     var body: some View {
             ScrollView {
@@ -24,37 +21,38 @@ struct IngredientsForm: View {
                     ForEach(0..<ingredientTracker.ingredientsCount, id:\.self){num in
                         HStack {
                             Spacer()
-                            TextField("Amount (grams)", text: $ingredientTracker.ingredientAmounts[num]).keyboardType(.numberPad).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                            Text("g")
+                            TextField("Amount", text: $ingredientTracker.ingredientAmounts[num]).keyboardType(.numberPad).padding(4.0).background(.white).cornerRadius(7)
+                            Text("g").foregroundColor(.white)
                             Spacer()
                             Spacer()
-                            TextField("Ingredient", text:$ingredientTracker.ingredientNames[num])
+                            VStack {
+                                TextField("Ingredient", text:$ingredientTracker.ingredientNames[num]).padding(4.0).background(.white).cornerRadius(7)
+                            }
                             Spacer()
                         }
                     }.padding()
-                    
                     HStack {
                         Spacer()
                         Button {
                             ingredientTracker.addStep()
                         } label: {
-                            Text("Add ingredient row")
-                        }
+                            Text("Add row")
+                        }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
                         Spacer()
                         Button {
                             ingredientTracker.removeStep()
                         } label: {
-                            Text("Remove ingredient row")
-                        }
+                            Text("Remove row")
+                        }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
                         Spacer()
                     }
                     Button{
                         ingredientTracker.resetTracker()
                     }label: {
-                        Text("Reset ingredients")
-                    }.padding()
+                        Text("Reset")
+                    }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10).padding()
                 }
-            }.onDisappear{
+            }.background(Color("BdazzledBlue")).onDisappear{
                 ingredients = ingredientTracker.convertToDict()
             }
         }
