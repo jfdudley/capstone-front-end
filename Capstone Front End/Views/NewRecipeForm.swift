@@ -18,7 +18,7 @@ struct NewRecipeForm: View {
     @State var databaseLocations : [Location] = []
     @ObservedObject var instructionsTracker = InstructionsTracker()
     @ObservedObject var ingredientsTracker = IngredientsTracker()
-    @Binding var navText : Bool
+    @Binding var navText : Color
     
     
     @State var name: String = ""
@@ -76,8 +76,8 @@ struct NewRecipeForm: View {
                                     Text("\(location.name)").tag(location.name)
                                 }
                             }
-                                .pickerStyle(SegmentedPickerStyle())
-
+                            .pickerStyle(SegmentedPickerStyle())
+                            
                         } else {
                             TextField("New location name", text: $location)
                         }
@@ -138,11 +138,11 @@ struct NewRecipeForm: View {
                     }.frame(minWidth: 0, maxWidth: .infinity, alignment:.center).disabled(validateData)
                 }.foregroundColor(Color("BdazzledBlue"))
             }.background(Color("BdazzledBlue"))
-            .task {
-                databaseIngredients = await apiManager.getAllIngredients()
-                databaseCategories = await apiManager.getAllCategories()
-                databaseLocations = await apiManager.getAllLocations()
-            }
+                .task {
+                    databaseIngredients = await apiManager.getAllIngredients()
+                    databaseCategories = await apiManager.getAllCategories()
+                    databaseLocations = await apiManager.getAllLocations()
+                }
         }
         else {
             VStack{
@@ -155,19 +155,18 @@ struct NewRecipeForm: View {
                 }.buttonStyle(.bordered).foregroundColor(.white).background(Color("BdazzledBlue")).cornerRadius(10).padding()
                 Spacer()
             }.onAppear{
-                navText.toggle()
-                UINavigationBar.appearance().tintColor = .black
-                print(navText)
+                navText = Color("BdazzledBlue")
             }.onDisappear{
-                navText.toggle()
+                navText = .white
             }
-            
         }
     }
 }
 
+
 struct NewRecipeForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewRecipeForm(recipes: .constant(previewRecipes), apiManager: APIManager(), navText: .constant(false))
+        NewRecipeForm(recipes: .constant(previewRecipes), apiManager: APIManager(), navText: .constant(.white))
     }
 }
+

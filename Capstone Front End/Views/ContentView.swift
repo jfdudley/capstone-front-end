@@ -14,17 +14,13 @@ struct ContentView: View {
     @State var recipes: [Recipe] = []
     @State var molds: [Mold] = []
     
-//    let blueText = UIColor(named:"BdazzledBlue")
-//    let greenText = UIColor(named:"KombuGreen")
-    @State var navText: Bool = false
+    @State var navText: Color = .white
     
     init() {
         UITableView.appearance().backgroundColor = .clear
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().compactAppearance?.backgroundColor = .clear
-        UINavigationBar.appearance().scrollEdgeAppearance?.backgroundColor = .clear
-        UINavigationBar.appearance().tintColor = .white
-        
+        UINavigationBar.appearance().scrollEdgeAppearance?.configureWithTransparentBackground()
     }
     
     var body: some View {
@@ -45,7 +41,7 @@ struct ContentView: View {
                                 }.buttonStyle(.bordered).foregroundColor(.white).padding(5.0).background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("BdazzledBlue")/*@END_MENU_TOKEN@*/).cornerRadius(10)
                                 Spacer()
                                 NavigationLink {
-                                    NewMoldForm(molds: $molds, apiManager: apiManager/*, navText: $navText*/)
+                                    NewMoldForm(molds: $molds, apiManager: apiManager, navText: $navText)
                                 } label: {
                                     Text("Create New Mold")
                                 }.buttonStyle(.bordered).foregroundColor(.white).padding(5.0).background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("SpanishBistre")/*@END_MENU_TOKEN@*/).cornerRadius(10)
@@ -57,7 +53,7 @@ struct ContentView: View {
                                 }.buttonStyle(.bordered).foregroundColor(.white).padding(5.0).background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("KombuGreen")/*@END_MENU_TOKEN@*/).cornerRadius(10)
                                 Spacer()
                             }.background(Image("Loading Image").resizable().aspectRatio(contentMode: .fill).frame(minWidth:0, maxWidth: .infinity,alignment: .center).edgesIgnoringSafeArea(.all).opacity(0.5))
-                }
+                }.accentColor(navText)
             }
         else {
             Loading_Page().task {

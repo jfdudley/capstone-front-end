@@ -10,13 +10,13 @@ import SwiftUI
 struct NewMoldForm: View {
     @Binding var molds: [Mold]
     @StateObject var apiManager: APIManager
-//    @Binding var navText : [Bool]
+    @Binding var navText : Color
     
     @State var wellShape: String = ""
     @State var wellVolume: Int = 0
     @State var numWells: Int = 0
     @State var source: String = ""
-    @State var addStatus: Bool = false
+    @State var addStatus: Bool = true
 
     var validateData: Bool {
         self.wellShape.isEmpty || self.wellVolume == 0 || self.numWells == 0 || self.source.isEmpty
@@ -59,18 +59,17 @@ struct NewMoldForm: View {
         else {
             VStack{
                 Spacer()
-            Text("Mold successfully submitted!")
-                Spacer()
+            Text("Mold successfully submitted!").foregroundColor(Color("SpanishBistre")).font(.title3)
             Button {
                 addStatus.toggle()
             } label: {
                 Text("Add another mold?")
-            }
+            }.buttonStyle(.bordered).foregroundColor(.white).background(Color("SpanishBistre")).cornerRadius(10).padding()
                 Spacer()
-//            }.onAppear{
-//                navText[1].toggle()
-//            }.onDisappear{
-//                navText[1].toggle()
+            }.onAppear{
+                navText = Color("KombuGreen")
+            }.onDisappear{
+                navText = .white
             }
 
         }
@@ -80,7 +79,7 @@ struct NewMoldForm: View {
 
 struct NewMoldForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager()/*, navText: .constant([false, false])*/)
+        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager(), navText: .constant(.white))
     }
 }
 }
