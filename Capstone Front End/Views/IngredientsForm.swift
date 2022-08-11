@@ -12,22 +12,30 @@ struct IngredientsForm: View {
     @Binding var ingredients: [String : Double]
     @Binding var ingredientList: [Ingredient]
     @ObservedObject var ingredientTracker: IngredientsTracker
+   
     
     var numberFormatter = NumberFormatter()
+    
+ 
 
     var body: some View {
             ScrollView {
                 VStack{
+                    Text("Select ingredients:").font(.title3).foregroundColor(.white)
                     ForEach(0..<ingredientTracker.ingredientsCount, id:\.self){num in
-                        HStack {
+                        HStack(alignment: .top){
                             Spacer()
-                            TextField("Amount", text: $ingredientTracker.ingredientAmounts[num]).keyboardType(.numberPad).padding(4.0).background(.white).cornerRadius(7)
-                            Text("g").foregroundColor(.white)
-                            Spacer()
-                            Spacer()
-                            VStack {
-                                TextField("Ingredient", text:$ingredientTracker.ingredientNames[num]).padding(4.0).background(.white).cornerRadius(7)
+                            HStack(alignment: .bottom) {
+                                TextField("Amount", text: $ingredientTracker.ingredientAmounts[num])
+                                    .keyboardType(.numberPad)
+                                    .padding(4.0).background(.white)
+                                .cornerRadius(7)
+                                Text("g")
+                                    .foregroundColor(.white)
                             }
+                            Spacer()
+                            Spacer()
+                            Autocomplete(ingredientList: $ingredientList, ingredientTracker: ingredientTracker, indexNum: num)
                             Spacer()
                         }
                     }.padding()

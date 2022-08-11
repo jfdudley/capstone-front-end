@@ -39,6 +39,7 @@
 		05A5379228986D2700BF2E0C /* Capstone_Front_EndUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5379128986D2700BF2E0C /* Capstone_Front_EndUITests.swift */; };
 		05A5379428986D2700BF2E0C /* Capstone_Front_EndUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5379328986D2700BF2E0C /* Capstone_Front_EndUITestsLaunchTests.swift */; };
 		05F4839728A4638F00C1EED6 /* MoldCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4839628A4638F00C1EED6 /* MoldCounts.swift */; };
+		05F4839928A5524900C1EED6 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4839828A5524900C1EED6 /* Navbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		05A5379128986D2700BF2E0C /* Capstone_Front_EndUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_Front_EndUITests.swift; sourceTree = "<group>"; };
 		05A5379328986D2700BF2E0C /* Capstone_Front_EndUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_Front_EndUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		05F4839628A4638F00C1EED6 /* MoldCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldCounts.swift; sourceTree = "<group>"; };
+		05F4839828A5524900C1EED6 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				059DEED428A046D40026A7F3 /* SwiftUIView.swift */,
 				059DEEDC28A05C350026A7F3 /* Autocomplete.swift */,
 				05F4839628A4638F00C1EED6 /* MoldCounts.swift */,
+				05F4839828A5524900C1EED6 /* Navbar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				05A5377728986D2100BF2E0C /* Capstone_Front_EndApp.swift in Sources */,
 				05429DE42899EE05001BDBEB /* MoldRow.swift in Sources */,
 				051462B62899C17900A531D1 /* RecipeDetail.swift in Sources */,
+				05F4839928A5524900C1EED6 /* Navbar.swift in Sources */,
 				05429DF6289D8EB0001BDBEB /* NewRecipeForm.swift in Sources */,
 				05429DF2289C47E3001BDBEB /* MoldTracker.swift in Sources */,
 				051462B22899BF2300A531D1 /* Recipe.swift in Sources */,

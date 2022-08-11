@@ -16,14 +16,15 @@ struct ContentView: View {
     
 //    let blueText = UIColor(named:"BdazzledBlue")
 //    let greenText = UIColor(named:"KombuGreen")
-//    @State var navText: [Bool] = [false, false]
+    @State var navText: Bool = false
     
     init() {
         UITableView.appearance().backgroundColor = .clear
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().compactAppearance?.backgroundColor = .clear
         UINavigationBar.appearance().scrollEdgeAppearance?.backgroundColor = .clear
-        UINavigationBar.appearance().tintColor = /*self.navText[0] ? blueText : self.navText[1] ? greenText : */.white
+        UINavigationBar.appearance().tintColor = .white
+        
     }
     
     var body: some View {
@@ -38,7 +39,7 @@ struct ContentView: View {
                                 }.isDetailLink(false).buttonStyle(.bordered).foregroundColor(.white).padding(5.0).background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("ShadowBlue")/*@END_MENU_TOKEN@*/).cornerRadius(10)
                                 Spacer()
                                 NavigationLink {
-                                    NewRecipeForm(recipes: $recipes, apiManager: apiManager/*, navText: $navText*/)
+                                    NewRecipeForm(recipes: $recipes, apiManager: apiManager, navText: $navText)
                                 } label: {
                                     Text("Create New Recipe")
                                 }.buttonStyle(.bordered).foregroundColor(.white).padding(5.0).background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("BdazzledBlue")/*@END_MENU_TOKEN@*/).cornerRadius(10)

@@ -21,23 +21,12 @@ struct RecipeList: View {
                                 RecipeRow(recipe: recipe)}.isDetailLink(false)
                 }
                     .onAppear{
-//                        UITableView.appearance().backgroundColor = .clear
                         moldTracker.setMoldCounts(molds: molds)
                         moldTracker.totalVolume = 0
                     }
                     .toolbar{
-                            ToolbarItemGroup(placement:.bottomBar){
-                                Spacer()
-                                Button (action: { self.rootIsActive = false } ){
-                                    Image(systemName: "house").foregroundColor(.white)
-                                }
-                                Spacer()
-                                Button (action: {print("Account button pressed")}){
-                                    Image(systemName: "person.crop.circle").foregroundColor(.white)
-                                }
-                                Spacer()
+                            Navbar(rootIsActive: $rootIsActive)
                             }
-                }
             }.background(Color("ShadowBlue"))
     }
 
