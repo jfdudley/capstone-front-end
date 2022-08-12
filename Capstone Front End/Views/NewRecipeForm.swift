@@ -148,7 +148,7 @@ struct NewRecipeForm: View {
         else {
             VStack{
                 Spacer()
-                Text("Recipe successfully submitted!").foregroundColor(Color("BdazzledBlue")).font(.title3)
+                Text("Recipe successfully submitted!").foregroundColor(Color("BdazzledBlue")).font(.title3).bold()
                 Button {
                     addStatus.toggle()
                 } label: {
