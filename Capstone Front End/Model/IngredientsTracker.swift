@@ -8,6 +8,10 @@
 import Foundation
 
 class IngredientsTracker: ObservableObject {
+    static func==(lhs:IngredientsTracker, rhs:IngredientsTracker) -> Bool {
+        return lhs.ingredientsCount == rhs.ingredientsCount && lhs.ingredientNames == rhs.ingredientNames && lhs.ingredientAmounts == rhs.ingredientAmounts
+    }
+    
     @Published var ingredientsCount : Int = 3
     @Published var ingredientNames : [String] = ["", "", ""]
     @Published var ingredientAmounts: [String] = ["", "", ""]

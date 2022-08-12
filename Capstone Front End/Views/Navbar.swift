@@ -22,12 +22,13 @@ struct Navbar: ToolbarContent {
                 Image(systemName: "person.crop.circle").foregroundColor(.white)
             }
             Spacer()
-        }
     }
+}
 }
 
 //struct Navbar_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Navbar()
+//        Navbar(rootIsActive: .constant(false))
 //    }
 //}
+

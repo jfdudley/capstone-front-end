@@ -12,6 +12,7 @@ struct IngredientsForm: View {
     @Binding var ingredients: [String : Double]
     @Binding var ingredientList: [Ingredient]
     @ObservedObject var ingredientTracker: IngredientsTracker
+   
     
     var numberFormatter = NumberFormatter()
     
