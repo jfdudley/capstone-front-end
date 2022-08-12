@@ -25,7 +25,7 @@ struct RecipeList: View {
                 moldTracker.totalVolume = 0
             }
             .toolbar{
-                Navbar(rootIsActive: $rootIsActive, textColor: .white)
+                Navbar(rootIsActive: $rootIsActive)
             }
         }.background(Color("ShadowBlue"))
     }
