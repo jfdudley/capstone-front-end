@@ -75,7 +75,7 @@ struct RecipeDetail: View {
                             }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(.white)
             }
             .toolbar{
-                Navbar(rootIsActive: $rootIsActive)
+                Navbar(rootIsActive: $rootIsActive, textColor: Color("BdazzledBlue"))
             }
         }.background(Color("ShadowBlue").ignoresSafeArea(.all))
         
