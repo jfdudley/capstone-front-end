@@ -14,7 +14,7 @@ struct MoldList: View {
     
     var body: some View {
         VStack {
-            Text("Select molds:").font(.title3).foregroundColor(.white)
+            Text("Select molds:").font(.title2).foregroundColor(.white)
             List($molds, id: \.self) {mold in
                 MoldRow(mold: mold, moldTracker: moldTracker)
             }

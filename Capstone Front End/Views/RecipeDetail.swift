@@ -49,14 +49,14 @@ struct RecipeDetail: View {
                                 HStack {
                                     Spacer()
                                     Text("\(intTotal)g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                                    Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
+                                    Text("\(ingredient.name)").fixedSize().frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                     Spacer()
                                 }
                             } else {
                                 HStack {
                                     Spacer()
                                     Text("\(ingredientTotal, specifier: "%.2f")g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                                    Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
+                                    Text("\(ingredient.name)").fixedSize().frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                     Spacer()
                                 }
                                 

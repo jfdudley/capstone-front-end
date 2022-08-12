@@ -17,6 +17,7 @@ struct MoldRow: View {
             Text(mold.wellShape)
             Spacer()
             Text("\(moldTracker.moldCounts[mold.id] ?? 0)")
+            Text("").font(.body)
             Button {
                 if moldTracker.moldCounts[mold.id]! > 0 {
                     moldTracker.decreaseTotalVolume(decrease: mold.wellVolume)
@@ -24,18 +25,19 @@ struct MoldRow: View {
                 }
                 
             } label: {
-                Image(systemName: "minus.circle.fill").foregroundColor(Color("ShadowBlue"))
+                Image(systemName: "minus.circle.fill").foregroundColor(Color("ShadowBlue")).font(.title2)
             }.buttonStyle(PlainButtonStyle())
+            Text("").font(.body)
             Button {
                 if moldTracker.moldCounts[mold.id]! < mold.numWells {
                     moldTracker.increaseTotalVolume(increase: mold.wellVolume)
                     moldTracker.moldCounts[mold.id]! += 1
                 }
             } label: {
-                Image(systemName: "plus.circle.fill").foregroundColor(Color("ShadowBlue"))
+                Image(systemName: "plus.circle.fill").foregroundColor(Color("ShadowBlue")).font(.title2)
             }.buttonStyle(PlainButtonStyle())
             
-        }
+        }.font(.title3)
     }
 }
 
