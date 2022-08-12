@@ -12,7 +12,6 @@ struct RecipeDetail: View {
     var recipe: Recipe
     @ObservedObject var moldTracker : MoldTracker
     @Binding var molds : [Mold]
-    
     @Binding var rootIsActive: Bool
     
     var body: some View {

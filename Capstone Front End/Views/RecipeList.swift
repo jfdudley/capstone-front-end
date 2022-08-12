@@ -12,6 +12,7 @@ struct RecipeList: View {
     @Binding var recipes : [Recipe]
     @Binding var molds: [Mold]
     @ObservedObject var moldTracker = MoldTracker()
+
     
     var body: some View {
         VStack {

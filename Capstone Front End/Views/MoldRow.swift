@@ -24,7 +24,7 @@ struct MoldRow: View {
                 }
                 
             } label: {
-                Image(systemName: "minus")
+                Image(systemName: "minus.circle.fill").foregroundColor(Color("ShadowBlue"))
             }.buttonStyle(PlainButtonStyle())
             Button {
                 if moldTracker.moldCounts[mold.id]! < mold.numWells {
@@ -32,7 +32,7 @@ struct MoldRow: View {
                     moldTracker.moldCounts[mold.id]! += 1
                 }
             } label: {
-                Image(systemName: "plus")
+                Image(systemName: "plus.circle.fill").foregroundColor(Color("ShadowBlue"))
             }.buttonStyle(PlainButtonStyle())
             
         }
