@@ -28,7 +28,7 @@ struct NewRecipeForm: View {
     @State var ingredients: [String:Double] = [:]
     @State var instructions: String = ""
     
-    @State var addStatus: Bool = true
+    @State var addStatus: Bool = false
     @State var newCategory: Bool = false
     @State var newLocation: Bool = false
     

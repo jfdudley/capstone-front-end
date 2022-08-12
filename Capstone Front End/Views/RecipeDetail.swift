@@ -49,14 +49,8 @@ struct RecipeDetail: View {
                                 let intTotal = Int(ingredientTotal)
                                 HStack {
                                     Spacer()
-<<<<<<< HEAD
                                     Text("\(intTotal)g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                                     Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
-=======
-                                    Text("\(intTotal)g")
-                                    Spacer()
-                                    Text("\(ingredient.name)")
->>>>>>> main
                                     Spacer()
                                 }
                             } else {
@@ -81,12 +75,7 @@ struct RecipeDetail: View {
                 }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(.white)
             }
             .toolbar{
-<<<<<<< HEAD
                 Navbar(rootIsActive: $rootIsActive)
-=======
-                Navbar(rootIsActive: $rootIsActive, textColor: Color("BdazzledBlue"))
-
->>>>>>> main
             }
         }.background(Color("ShadowBlue").ignoresSafeArea(.all))
         
