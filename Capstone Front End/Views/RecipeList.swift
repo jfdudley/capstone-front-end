@@ -28,6 +28,7 @@ struct RecipeList: View {
                 Navbar(rootIsActive: $rootIsActive, textColor: .white)
             }
         }.background(Color("ShadowBlue"))
+
     }
     
     struct RecipeList_Previews: PreviewProvider {

@@ -18,13 +18,40 @@ struct RecipeDetail: View {
     var body: some View {
         VStack {
             ScrollView {
-                            VStack(alignment: .leading) {
-                                Text(recipe.name)
-                                    .font(.title)
+                VStack(alignment: .leading) {
+                    Text(recipe.name)
+                        .font(.title)
+                    HStack {
+                        Text(recipe.location)
+                        Spacer()
+                        Text(recipe.category)
+                        Spacer()
+                    }.font(.subheadline).foregroundColor(Color("Cultured")).padding(.top, 3)
+                    Divider().overlay(Color("Cultured")).padding(3)
+                    Text(recipe.description).font(.title3)
+                    
+                    VStack {
+                        NavigationLink{
+                            MoldList(moldTracker: moldTracker, molds: $molds)
+                            
+                        } label: {
+                            Text("Choose Molds Here")
+                        }.buttonStyle(.bordered).background(Color(.white)).cornerRadius(10).foregroundColor(Color("BdazzledBlue")).padding(2).frame(minWidth: 0, maxWidth: .infinity, alignment:.center)
+                        Text("Ingredient amounts for:").font(.body).padding(2)
+                        MoldCounts(molds:$molds, moldTracker:moldTracker)
+                    }.frame(minWidth:0, maxWidth:.infinity).padding().border(Color("Cultured"), width: 1).cornerRadius(5)
+                    
+                    ForEach(recipe.ingredients.sorted{$0.percentage > $1.percentage}, id: \.self){
+                        ingredient in
+                        if moldTracker.totalVolume != 0 {
+                            let ingredientTotal = moldTracker.getIngredientTotal(percentage: ingredient.percentage)
+                            if ingredientTotal >= 5.0 {
+                                let intTotal = Int(ingredientTotal)
                                 HStack {
-                                    Text(recipe.location)
                                     Spacer()
-                                    Text(recipe.category)
+                                    Text("\(intTotal)g")
+                                    Spacer()
+                                    Text("\(ingredient.name)")
                                     Spacer()
                                 }.font(.subheadline).foregroundColor(Color("Cultured")).padding(.top, 3)
                                 Divider().overlay(Color("Cultured")).padding(3)
@@ -76,12 +103,13 @@ struct RecipeDetail: View {
             }
             .toolbar{
                 Navbar(rootIsActive: $rootIsActive, textColor: Color("BdazzledBlue"))
+
             }
         }.background(Color("ShadowBlue").ignoresSafeArea(.all))
         
     }
-        }
-    
+}
+
 
 
 struct RecipeDetail_Previews: PreviewProvider {

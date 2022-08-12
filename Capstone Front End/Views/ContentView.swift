@@ -15,7 +15,7 @@ struct ContentView: View {
     @State var molds: [Mold] = []
     
     @State var navText : Color = .white
-    
+
     init() {
         UITableView.appearance().backgroundColor = .clear
         UINavigationBar.appearance().backgroundColor = .clear
@@ -55,6 +55,7 @@ struct ContentView: View {
                 }.background(Image("Loading Image").resizable().aspectRatio(contentMode: .fill).frame(minWidth:0, maxWidth: .infinity,alignment: .center).edgesIgnoringSafeArea(.all).opacity(0.5))
             }.accentColor(navText)
         }
+
         else {
             Loading_Page().task {
                 sleep(2)
