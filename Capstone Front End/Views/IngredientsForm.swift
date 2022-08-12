@@ -16,55 +16,50 @@ struct IngredientsForm: View {
     
     var numberFormatter = NumberFormatter()
     
- 
-
     var body: some View {
-            ScrollView {
-                VStack{
-                    Text("Select ingredients:").font(.title3).foregroundColor(.white)
-                    ForEach(0..<ingredientTracker.ingredientsCount, id:\.self){num in
-                        HStack(alignment: .top){
-                            Spacer()
-                            HStack(alignment: .bottom) {
-                                TextField("Amount", text: $ingredientTracker.ingredientAmounts[num])
-                                    .keyboardType(.numberPad)
-                                    .padding(4.0).background(.white)
-                                .cornerRadius(7)
-                                Text("g")
-                                    .foregroundColor(.white)
-                            }
-                            Spacer()
-                            Spacer()
-                            Autocomplete(ingredientList: $ingredientList, ingredientTracker: ingredientTracker, indexNum: num)
-                            Spacer()
+        ScrollView {
+            VStack{
+                Text("Select ingredients:").font(.title3).foregroundColor(.white)
+                ForEach(0..<ingredientTracker.ingredientsCount, id:\.self){num in
+                    HStack(alignment: .top) {
+                        Spacer()
+                        HStack(alignment: .bottom) {
+                            TextField("Amount", text: $ingredientTracker.ingredientAmounts[num]).keyboardType(.numberPad).padding(4.0).background(.white).cornerRadius(7)
+                            Text("g").foregroundColor(.white)
                         }
-                    }.padding()
-                    HStack {
+                        
                         Spacer()
-                        Button {
-                            ingredientTracker.addStep()
-                        } label: {
-                            Text("Add row")
-                        }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
                         Spacer()
-                        Button {
-                            ingredientTracker.removeStep()
-                        } label: {
-                            Text("Remove row")
-                        }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
+                        Autocomplete(ingredientList: $ingredientList, ingredientTracker: ingredientTracker, indexNum: num)
                         Spacer()
                     }
-                    Button{
-                        ingredientTracker.resetTracker()
-                    }label: {
-                        Text("Reset")
-                    }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10).padding()
+                }.padding()
+                HStack {
+                    Spacer()
+                    Button {
+                        ingredientTracker.addStep()
+                    } label: {
+                        Text("Add row")
+                    }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
+                    Spacer()
+                    Button {
+                        ingredientTracker.removeStep()
+                    } label: {
+                        Text("Remove row")
+                    }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10)
+                    Spacer()
                 }
-            }.background(Color("BdazzledBlue")).onDisappear{
-                ingredients = ingredientTracker.convertToDict()
+                Button{
+                    ingredientTracker.resetTracker()
+                }label: {
+                    Text("Reset")
+                }.buttonStyle(.bordered).foregroundColor(Color("BdazzledBlue")).background(.white).cornerRadius(10).padding()
             }
+        }.background(Color("BdazzledBlue")).onDisappear{
+            ingredients = ingredientTracker.convertToDict()
         }
     }
+}
 
 
 struct IngredientsForm_Previews: PreviewProvider {

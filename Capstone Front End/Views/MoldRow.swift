@@ -34,7 +34,7 @@ struct MoldRow: View {
             } label: {
                 Image(systemName: "plus")
             }.buttonStyle(PlainButtonStyle())
-
+            
         }
     }
 }

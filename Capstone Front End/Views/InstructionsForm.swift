@@ -14,7 +14,7 @@ struct InstructionsForm: View {
     var body: some View {
         ScrollView {
             VStack{
-                Text("Add instructions").font(.title3).foregroundColor(.white)
+                Text("Add instructions:").font(.title3).foregroundColor(.white)
                 ForEach(1...instructionsTracker.numInstructions, id:\.self){num in
                     HStack {
                         Text("\(num).").foregroundColor(.white).fontWeight(.bold)

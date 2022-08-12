@@ -53,38 +53,57 @@ struct RecipeDetail: View {
                                     Spacer()
                                     Text("\(ingredient.name)")
                                     Spacer()
-                                }
-                            } else {
-                                HStack {
-                                    Spacer()
-                                    Text("\(ingredientTotal, specifier: "%.2f")g")
-                                    Spacer()
-                                    Text("\(ingredient.name)")
-                                    Spacer()
-                                }
+                                }.font(.subheadline).foregroundColor(Color("Cultured")).padding(.top, 3)
+                                Divider().overlay(Color("Cultured")).padding(3)
+                                Text(recipe.description).font(.body)
                                 
-                            }
-                        }
-                        else {
-                            HStack {
-                                Spacer()
-                                Spacer()
-                                Text("\(ingredient.name)")
-                                Spacer()
-                            }
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(6.0)
-                    Divider().overlay(Color("Cultured")).padding(.vertical, 4).padding(.horizontal, 3)
-                    ForEach(recipe.instructions, id: \.self) {
-                        instruction in
-                        Text(instruction).padding(3)
-                    }
-                }.padding().foregroundColor(.white)
-            }.background(.clear)
+                                VStack {
+                                    NavigationLink{
+                                        MoldList(moldTracker: moldTracker, molds: $molds)
+                                        
+                                    } label: {
+                                        Text("Choose Molds Here")
+                                    }.buttonStyle(.bordered).background(Color(.white)).cornerRadius(10).foregroundColor(Color("BdazzledBlue")).padding(2).frame(minWidth: 0, maxWidth: .infinity, alignment:.center)
+                                    Text("Ingredient amounts for:").font(.body).padding(2)
+                                    MoldCounts(molds:$molds, moldTracker:moldTracker)
+                                }.frame(minWidth:0, maxWidth:.infinity).padding().border(Color("Cultured"), width: 1).cornerRadius(5)
+                                
+                                ForEach(recipe.ingredients.sorted{$0.percentage > $1.percentage}, id: \.self){
+                                    ingredient in
+                                    if moldTracker.totalVolume != 0 {
+                                        let ingredientTotal = moldTracker.getIngredientTotal(percentage: ingredient.percentage)
+                                        if ingredientTotal >= 5.0 {
+                                            let intTotal = Int(ingredientTotal)
+                                            HStack {
+                                                Spacer()
+                                                Text("\(intTotal)g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                                                Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
+                                                Spacer()
+                                            }
+                                        } else {
+                                            HStack {
+                                                Spacer()
+                                                Text("\(ingredientTotal, specifier: "%.2f")g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                                                Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
+                                                Spacer()
+                                            }
+                                        
+                                        }
+                                    }
+                                    else {
+                                        Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
+                                    }
+                                }.padding(6.0)
+                                Divider().overlay(Color("Cultured")).padding(.vertical, 4).padding(.horizontal, 3)
+                                ForEach(recipe.instructions, id: \.self) {
+                                    instruction in
+                                    Text(instruction).padding(3)
+                                }
+                            }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(.white)
+            }
             .toolbar{
-                Navbar(rootIsActive: $rootIsActive)
+                Navbar(rootIsActive: $rootIsActive, textColor: Color("BdazzledBlue"))
+
             }
         }.background(Color("ShadowBlue").ignoresSafeArea(.all))
         
@@ -95,7 +114,6 @@ struct RecipeDetail: View {
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-        //        RecipeDetail(recipe: recipes[0], prevIsActive: .constant(false))
         RecipeDetail(recipe: previewRecipes[0], moldTracker: MoldTracker(), molds: .constant(previewMolds), rootIsActive: .constant(false))
     }
 }

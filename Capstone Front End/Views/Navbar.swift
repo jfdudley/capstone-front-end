@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Navbar: ToolbarContent {
+    
     @Binding var rootIsActive : Bool
     
     var body: some ToolbarContent {
