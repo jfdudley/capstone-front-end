@@ -28,7 +28,7 @@ struct RecipeDetail: View {
                                     Spacer()
                                 }.font(.subheadline).foregroundColor(Color("Cultured")).padding(.top, 3)
                                 Divider().overlay(Color("Cultured")).padding(3)
-                                Text(recipe.description).font(.title3)
+                                Text(recipe.description).font(.body)
                                 
                                 VStack {
                                     NavigationLink{
@@ -49,28 +49,26 @@ struct RecipeDetail: View {
                                             let intTotal = Int(ingredientTotal)
                                             HStack {
                                                 Spacer()
-                                                Text("\(intTotal)g")
-                                                Spacer()
-                                                Text("\(ingredient.name)")
+                                                Text("\(intTotal)g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+//                                                Spacer()
+                                                Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                                 Spacer()
                                             }
                                         } else {
                                             HStack {
                                                 Spacer()
-                                                Text("\(ingredientTotal, specifier: "%.2f")g")
-                                                Spacer()
-                                                Text("\(ingredient.name)")
+                                                Text("\(ingredientTotal, specifier: "%.2f")g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+//                                                Spacer()
+                                                Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                                 Spacer()
                                             }
                                         
                                         }
                                     }
                                     else {
-                                        Text("\(ingredient.name)")
+                                        Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                     }
-                                }
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                    .padding(6.0)
+                                }.padding(6.0)
                                 Divider().overlay(Color("Cultured")).padding(.vertical, 4).padding(.horizontal, 3)
                                 ForEach(recipe.instructions, id: \.self) {
                                     instruction in

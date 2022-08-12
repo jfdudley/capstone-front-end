@@ -48,7 +48,7 @@ struct Autocomplete: View {
                             buttonTapped.toggle()
                             hasOptions.toggle()
                         } label: {
-                            Text("New Ingredient").frame(maxWidth: .infinity).padding(4).foregroundColor(Color("BdazzledBlue"))
+                            Text("New Ingredient").foregroundColor(Color("BdazzledBlue")).fontWeight(.bold).frame(maxWidth: .infinity).padding(4)
                         }
                     }.frame(maxWidth: .infinity, maxHeight: .infinity).background(RoundedRectangle(cornerRadius: 6).foregroundColor(.white).shadow(radius: 4))
                 }
