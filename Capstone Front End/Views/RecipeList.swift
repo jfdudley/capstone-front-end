@@ -21,7 +21,6 @@ struct RecipeList: View {
                                 RecipeRow(recipe: recipe)}.isDetailLink(false)
                 }
                     .onAppear{
-//                        UITableView.appearance().backgroundColor = .clear
                         moldTracker.setMoldCounts(molds: molds)
                         moldTracker.totalVolume = 0
                     }
