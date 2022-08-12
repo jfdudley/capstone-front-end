@@ -26,8 +26,8 @@ struct RecipeDetail: View {
                                     Spacer()
                                     Text(recipe.category)
                                     Spacer()
-                                }.font(.subheadline).foregroundColor(Color("Cultured"))
-                                Divider().overlay(Color("Cultured")).padding()
+                                }.font(.subheadline).foregroundColor(Color("Cultured")).padding(.top, 3)
+                                Divider().overlay(Color("Cultured")).padding(3)
                                 Text(recipe.description).font(.title3)
                                 
                                 VStack {
@@ -37,7 +37,7 @@ struct RecipeDetail: View {
                                     } label: {
                                         Text("Choose Molds Here")
                                     }.buttonStyle(.bordered).background(Color(.white)).cornerRadius(10).foregroundColor(Color("BdazzledBlue")).padding(2).frame(minWidth: 0, maxWidth: .infinity, alignment:.center)
-                                    Text("Ingredient amounts for:").padding(2)
+                                    Text("Ingredient amounts for:").font(.body).padding(2)
                                     MoldCounts(molds:$molds, moldTracker:moldTracker)
                                 }.frame(minWidth:0, maxWidth:.infinity).padding().border(Color("Cultured"), width: 1).cornerRadius(5)
                                 
@@ -47,9 +47,21 @@ struct RecipeDetail: View {
                                         let ingredientTotal = moldTracker.getIngredientTotal(percentage: ingredient.percentage)
                                         if ingredientTotal >= 5.0 {
                                             let intTotal = Int(ingredientTotal)
-                                            Text("\(intTotal)g \(ingredient.name)")
+                                            HStack {
+                                                Spacer()
+                                                Text("\(intTotal)g")
+                                                Spacer()
+                                                Text("\(ingredient.name)")
+                                                Spacer()
+                                            }
                                         } else {
-                                        Text("\(ingredientTotal, specifier: "%.2f")g \(ingredient.name)")
+                                            HStack {
+                                                Spacer()
+                                                Text("\(ingredientTotal, specifier: "%.2f")g")
+                                                Spacer()
+                                                Text("\(ingredient.name)")
+                                                Spacer()
+                                            }
                                         
                                         }
                                     }
@@ -57,13 +69,12 @@ struct RecipeDetail: View {
                                         Text("\(ingredient.name)")
                                     }
                                 }
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .padding(.trailing, 80)
+                                .frame(maxWidth: .infinity, alignment: .center)
                                     .padding(6.0)
-                                Divider().overlay(Color("Cultured")).padding()
+                                Divider().overlay(Color("Cultured")).padding(.vertical, 4).padding(.horizontal, 3)
                                 ForEach(recipe.instructions, id: \.self) {
                                     instruction in
-                                    Text(instruction).padding()
+                                    Text(instruction).padding(3)
                                 }
                             }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(.white)
             }
