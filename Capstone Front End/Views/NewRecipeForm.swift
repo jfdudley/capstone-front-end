@@ -18,7 +18,7 @@ struct NewRecipeForm: View {
     @State var databaseLocations : [Location] = []
     @ObservedObject var instructionsTracker = InstructionsTracker()
     @ObservedObject var ingredientsTracker = IngredientsTracker()
-//    @Binding var navText : [Bool]
+    @Binding var navText : Color
     
     
     @State var name: String = ""
@@ -155,10 +155,10 @@ struct NewRecipeForm: View {
                     Text("Add another recipe?")
                 }.buttonStyle(.bordered).foregroundColor(.white).background(Color("BdazzledBlue")).cornerRadius(10).padding()
                 Spacer()
-//            }.onAppear{
-//                navText[0].toggle()
-//            }.onDisappear{
-//                navText[0].toggle()
+            }.onAppear{
+                navText = Color("BdazzledBlue")
+            }.onDisappear{
+                navText = .white
             }
             
         }
@@ -167,6 +167,6 @@ struct NewRecipeForm: View {
 
 struct NewRecipeForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewRecipeForm(recipes: .constant(previewRecipes), apiManager: APIManager()/*, navText: .constant([false, false])*/)
+        NewRecipeForm(recipes: .constant(previewRecipes), apiManager: APIManager(), navText: .constant(.white))
     }
 }

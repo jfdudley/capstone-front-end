@@ -10,7 +10,7 @@ import SwiftUI
 struct NewMoldForm: View {
     @Binding var molds: [Mold]
     @StateObject var apiManager: APIManager
-//    @Binding var navText : [Bool]
+    @Binding var navText : Color
     
     @State var wellShape: String = ""
     @State var wellVolume: Int = 0
@@ -67,10 +67,10 @@ struct NewMoldForm: View {
                 Text("Add another mold?")
             }
                 Spacer()
-//            }.onAppear{
-//                navText[1].toggle()
-//            }.onDisappear{
-//                navText[1].toggle()
+            }.onAppear{
+                navText = Color("KombuGreen")
+            }.onDisappear{
+                navText = .white
             }
 
         }
@@ -80,7 +80,7 @@ struct NewMoldForm: View {
 
 struct NewMoldForm_Previews: PreviewProvider {
     static var previews: some View {
-        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager()/*, navText: .constant([false, false])*/)
+        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager(), navText: .constant(.white))
     }
 }
 }
