@@ -50,7 +50,6 @@ struct RecipeDetail: View {
                                             HStack {
                                                 Spacer()
                                                 Text("\(intTotal)g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-//                                                Spacer()
                                                 Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                                 Spacer()
                                             }
@@ -58,7 +57,6 @@ struct RecipeDetail: View {
                                             HStack {
                                                 Spacer()
                                                 Text("\(ingredientTotal, specifier: "%.2f")g").frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-//                                                Spacer()
                                                 Text("\(ingredient.name)").frame(maxWidth: .infinity, alignment: .trailing).padding(.trailing, 30)
                                                 Spacer()
                                             }
@@ -99,7 +97,6 @@ struct RecipeDetail: View {
 
 struct RecipeDetail_Previews: PreviewProvider {
     static var previews: some View {
-//        RecipeDetail(recipe: recipes[0], prevIsActive: .constant(false))
         RecipeDetail(recipe: previewRecipes[0], moldTracker: MoldTracker(), molds: .constant(previewMolds), rootIsActive: .constant(false))
     }
 }

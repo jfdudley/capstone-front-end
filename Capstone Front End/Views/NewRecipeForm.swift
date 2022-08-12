@@ -77,8 +77,8 @@ struct NewRecipeForm: View {
                                     Text("\(location.name)").tag(location.name)
                                 }
                             }
-                                .pickerStyle(SegmentedPickerStyle())
-
+                            .pickerStyle(SegmentedPickerStyle())
+                            
                         } else {
                             TextField("New location name", text: $location)
                         }
@@ -139,11 +139,11 @@ struct NewRecipeForm: View {
                     }.frame(minWidth: 0, maxWidth: .infinity, alignment:.center).disabled(validateData)
                 }.foregroundColor(Color("BdazzledBlue"))
             }.background(Color("BdazzledBlue"))
-            .task {
-                databaseIngredients = await apiManager.getAllIngredients()
-                databaseCategories = await apiManager.getAllCategories()
-                databaseLocations = await apiManager.getAllLocations()
-            }
+                .task {
+                    databaseIngredients = await apiManager.getAllIngredients()
+                    databaseCategories = await apiManager.getAllCategories()
+                    databaseLocations = await apiManager.getAllLocations()
+                }
         }
         else {
             VStack{

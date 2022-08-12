@@ -26,17 +26,17 @@ struct MoldList: View {
             }.buttonStyle(.bordered).background(Color(.white)).cornerRadius(10).foregroundColor(Color("BdazzledBlue")).padding(2).frame(minWidth: 0, maxWidth: .infinity, alignment:.center).padding(.bottom, 50)
         }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(Color("BdazzledBlue"))
         
+    }
+    
+    
+    
+    
+    struct MoldList_Previews: PreviewProvider {
+        static var previews: some View {
+            MoldList( moldTracker: MoldTracker(), molds: .constant(previewMolds))
         }
-    
-
-    
-
-struct MoldList_Previews: PreviewProvider {
-    static var previews: some View {
-        MoldList( moldTracker: MoldTracker(), molds: .constant(previewMolds))
     }
 }
-}
-    
+
 
 

@@ -14,35 +14,35 @@ struct RecipeList: View {
     @ObservedObject var moldTracker = MoldTracker()
     
     var body: some View {
-            VStack {
-                Text("Recipe List").font(.title2).foregroundColor(Color("Cultured"))
-                List(recipes, id: \.self) {recipe in
-                        NavigationLink(destination: RecipeDetail(recipe: recipe, moldTracker: moldTracker, molds: $molds, rootIsActive: $rootIsActive)){
-                                RecipeRow(recipe: recipe)}.isDetailLink(false)
-                }
-                    .onAppear{
-                        moldTracker.setMoldCounts(molds: molds)
-                        moldTracker.totalVolume = 0
+        VStack {
+            Text("Recipe List").font(.title2).foregroundColor(Color("Cultured"))
+            List(recipes, id: \.self) {recipe in
+                NavigationLink(destination: RecipeDetail(recipe: recipe, moldTracker: moldTracker, molds: $molds, rootIsActive: $rootIsActive)){
+                    RecipeRow(recipe: recipe)}.isDetailLink(false)
+            }
+            .onAppear{
+                moldTracker.setMoldCounts(molds: molds)
+                moldTracker.totalVolume = 0
+            }
+            .toolbar{
+                ToolbarItemGroup(placement:.bottomBar){
+                    Spacer()
+                    Button (action: { self.rootIsActive = false } ){
+                        Image(systemName: "house").foregroundColor(.white)
                     }
-                    .toolbar{
-                            ToolbarItemGroup(placement:.bottomBar){
-                                Spacer()
-                                Button (action: { self.rootIsActive = false } ){
-                                    Image(systemName: "house").foregroundColor(.white)
-                                }
-                                Spacer()
-                                Button (action: {print("Account button pressed")}){
-                                    Image(systemName: "person.crop.circle").foregroundColor(.white)
-                                }
-                                Spacer()
-                            }
+                    Spacer()
+                    Button (action: {print("Account button pressed")}){
+                        Image(systemName: "person.crop.circle").foregroundColor(.white)
+                    }
+                    Spacer()
                 }
-            }.background(Color("ShadowBlue"))
+            }
+        }.background(Color("ShadowBlue"))
     }
-
-struct RecipeList_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeList(rootIsActive: .constant(false), recipes: .constant(previewRecipes), molds: .constant(previewMolds))
+    
+    struct RecipeList_Previews: PreviewProvider {
+        static var previews: some View {
+            RecipeList(rootIsActive: .constant(false), recipes: .constant(previewRecipes), molds: .constant(previewMolds))
+        }
     }
-}
 }

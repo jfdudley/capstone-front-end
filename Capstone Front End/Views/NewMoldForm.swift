@@ -17,7 +17,7 @@ struct NewMoldForm: View {
     @State var numWells: Int = 0
     @State var source: String = ""
     @State var addStatus: Bool = false
-
+    
     var validateData: Bool {
         self.wellShape.isEmpty || self.wellVolume == 0 || self.numWells == 0 || self.source.isEmpty
     }
@@ -38,7 +38,7 @@ struct NewMoldForm: View {
                         TextField("Well volume, in grams", value: $wellVolume, formatter:NumberFormatter()).keyboardType(.numberPad)
                         Stepper(value: $numWells){Text("Number of wells: \(numWells)")}
                         TextField("Source", text: $source)
-            
+                        
                     }
                     Section {
                         Button {
@@ -51,7 +51,7 @@ struct NewMoldForm: View {
                         } label: {
                             Text("Add mold").fontWeight(.bold)
                         }
-
+                        
                     }.frame(minWidth: 0, maxWidth: .infinity, alignment:.center).disabled(validateData)
                 }.foregroundColor(Color("KombuGreen"))
             }.background(Color("SpanishBistre"))
@@ -60,26 +60,26 @@ struct NewMoldForm: View {
             VStack{
                 Spacer()
                 Text("Mold successfully submitted!").foregroundColor(Color("SpanishBistre")).font(.title3).bold()
-            Button {
-                addStatus.toggle()
-            } label: {
-                Text("Add another mold?")
-            }.buttonStyle(.bordered).foregroundColor(.white).background(Color("SpanishBistre")).cornerRadius(10).padding()
+                Button {
+                    addStatus.toggle()
+                } label: {
+                    Text("Add another mold?")
+                }.buttonStyle(.bordered).foregroundColor(.white).background(Color("SpanishBistre")).cornerRadius(10).padding()
                 Spacer()
             }.onAppear{
                 navText = Color("KombuGreen")
             }.onDisappear{
                 navText = .white
             }
-
+            
         }
         
     }
-
-
-struct NewMoldForm_Previews: PreviewProvider {
-    static var previews: some View {
-        NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager(), navText: .constant(.white))
+    
+    
+    struct NewMoldForm_Previews: PreviewProvider {
+        static var previews: some View {
+            NewMoldForm(molds: .constant(previewMolds), apiManager: APIManager(), navText: .constant(.white))
+        }
     }
-}
 }
