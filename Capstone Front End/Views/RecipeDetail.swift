@@ -75,18 +75,7 @@ struct RecipeDetail: View {
                             }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(.white)
             }
             .toolbar{
-                    ToolbarItemGroup(placement:.bottomBar){
-                        Spacer()
-                        Button (action: { self.rootIsActive = false } ){
-                            Image(systemName: "house").foregroundColor(.white)
-                        }
-                        
-                        Spacer()
-                        Button (action: {print("Account button pressed")}){
-                            Image(systemName: "person.crop.circle").foregroundColor(.white)
-                        }
-                        Spacer()
-                    }
+                Navbar(rootIsActive: $rootIsActive)
             }
         }.background(Color("ShadowBlue").ignoresSafeArea(.all))
         
