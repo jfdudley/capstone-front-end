@@ -23,11 +23,13 @@ The DIY Skincare App relies on:
 ## Environment Set-up
 
 ### Xcode Installation
-Xcode is a developer toolset for creating apps for iOS devices. Any changes to the front end of the app must be made in Xcode. Xcode is available as a free download from the Mac App Store. There are no additional package requirements to run the front end of the app in Xcode. 
+Xcode is a developer toolset for creating apps for iOS devices. Any changes to the front end of the app must be made in Xcode. Xcode is available as a free download from the Mac App Store. There are no additional package requirements to run the front end of the app in Xcode, simply fork or clone this repository, and open the files in Xcode. From there, the app can either be run in a simulator or built on a device connected by USB.  
+
+This app was designed for mobile phone use, specifically tested on an iPhone 12 mini. It was not designed for use on a computer, iPad, or Apple Watch. 
 
 
 ### Heroku Database
-This project is currently a registered with the deployed backend database (separate repo) hosted on Heroku so no action needs to be taken to create a database. 
+This app is currently a registered with the deployed backend database (separate repo) hosted on Heroku so no action needs to be taken to create a database. 
 
 To connect the app to a local database, or a different database, update the url of the APIManager file, in the Model folder. 
 
