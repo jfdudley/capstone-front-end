@@ -1,4 +1,4 @@
-# DIY Skincare App
+# DIY Skincare App: Front-end Layer
 This app was created as a Capstone project for Ada Developer Academy Cohort 17. The purpose of the app is track skincare recipes, molds for forming solid products, and adjust recipe ingredient amounts based on users' mold selections. It was designed to assist my own hobby of making skincare products. 
 
 
