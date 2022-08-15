@@ -18,11 +18,11 @@ struct MoldList: View {
             List($molds, id: \.self) {mold in
                 MoldRow(mold: mold, moldTracker: moldTracker)
             }
-            Button {
-                moldTracker.totalVolume = 0
-                moldTracker.setMoldCounts(molds: molds)
-            } label: {
-                Text("Reset Total Volume and Counts")
+                Button {
+                    moldTracker.totalVolume = 0
+                    moldTracker.setMoldCounts(molds: molds)
+                } label: {
+                    Text("Reset Totals")
             }.buttonStyle(.bordered).background(Color(.white)).cornerRadius(10).foregroundColor(Color("BdazzledBlue")).padding(2).frame(minWidth: 0, maxWidth: .infinity, alignment:.center).padding(.bottom, 50)
         }.padding().background(Color("ShadowBlue").ignoresSafeArea(.all)).foregroundColor(Color("BdazzledBlue"))
         
