@@ -24,13 +24,15 @@ struct IngredientsForm: View {
                     HStack(alignment: .top) {
                         Spacer()
                         HStack(alignment: .bottom) {
-                            TextField("Amount", text: $ingredientTracker.ingredientAmounts[num]).keyboardType(.numberPad).padding(4.0).background(.white).cornerRadius(7)
+                            TextField("Amount", text: $ingredientTracker.ingredientAmounts[num]).padding(4.0).background(.white).cornerRadius(7)
                             Text("g").foregroundColor(.white)
                         }
                         
                         Spacer()
                         Spacer()
-                        Autocomplete(ingredientList: $ingredientList, ingredientTracker: ingredientTracker, indexNum: num)
+                        if num < ingredientTracker.ingredientsCount {
+                            Autocomplete(ingredientList: $ingredientList, ingredientTracker: ingredientTracker, indexNum: num)
+                        }
                         Spacer()
                     }
                 }.padding()

@@ -20,12 +20,16 @@ class IngredientsTracker: ObservableObject {
         ingredientsCount += 1
         ingredientNames.append("")
         ingredientAmounts.append("")
+        print(ingredientNames)
+        print(ingredientAmounts)
     }
     
     func removeStep() {
         ingredientsCount -= 1
-        ingredientNames.popLast()
-        ingredientAmounts.popLast()
+        ingredientNames.removeLast(1)
+        ingredientAmounts.removeLast(1)
+        print(ingredientNames)
+        print(ingredientAmounts)
     }
     
     func convertToString()->String {
@@ -40,8 +44,10 @@ class IngredientsTracker: ObservableObject {
     func convertToDict() -> [String : Double]{
         var returnDict : [String:Double] = [:]
         for num in 0..<self.ingredientsCount{
+            if ingredientNames[num] != "" && ingredientAmounts[num] != "" {
                 let amountDouble = Double(ingredientAmounts[num])
                 returnDict[ingredientNames[num]] = amountDouble
+            }
         }
         return returnDict
     }

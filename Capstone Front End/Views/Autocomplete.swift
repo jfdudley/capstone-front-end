@@ -17,41 +17,43 @@ struct Autocomplete: View {
     @State var buttonTapped : Bool = false
     
     var body: some View {
-        VStack {
-            TextField("Ingredient", text: $ingredientTracker.ingredientNames[indexNum]).onChange(of: $ingredientTracker.ingredientNames[indexNum].wrappedValue){
-                newValue in
-                if buttonTapped && ingredientTracker.ingredientNames[indexNum] != "" {
-                    hasOptions = false
-                }
-                else if buttonTapped {
-                    buttonTapped = false
-                }
-                else {
-                    hasOptions = true
-                    filteredIngredients = ingredientList.filter({ingredient in ingredient.name.contains(newValue)})
-                }
-            }.textInputAutocapitalization(.words).padding(4).background(.white).cornerRadius(7)
-            
-            ZStack {
-                if hasOptions {
-                    Spacer().frame(height: 50)
-                    VStack(alignment: .center){
-                        ForEach(filteredIngredients, id: \.self){
-                            ingredient in
-                            Text(ingredient.name).frame(maxWidth: .infinity).padding(4).onTapGesture {
-                                ingredientTracker.ingredientNames[indexNum] = ingredient.name
-                                buttonTapped = true
-                            }
-                            Divider()
+        if ingredientTracker.ingredientNames.count > indexNum {
+            VStack {
+                    TextField("Ingredient", text: $ingredientTracker.ingredientNames[indexNum]).onChange(of: $ingredientTracker.ingredientNames[indexNum].wrappedValue){
+                        newValue in
+                        if buttonTapped && ingredientTracker.ingredientNames[indexNum] != "" {
+                            hasOptions = false
                         }
-                        Button {
-                            buttonTapped.toggle()
-                            hasOptions.toggle()
-                        } label: {
-                            Text("New Ingredient").foregroundColor(Color("BdazzledBlue")).fontWeight(.bold).frame(maxWidth: .infinity).padding(4)
+                        else if buttonTapped {
+                            buttonTapped = false
                         }
-                    }.frame(maxWidth: .infinity, maxHeight: .infinity).background(RoundedRectangle(cornerRadius: 6).foregroundColor(.white).shadow(radius: 4))
-                }
+                        else {
+                            hasOptions = true
+                            filteredIngredients = ingredientList.filter({ingredient in ingredient.name.contains(newValue)})
+                        }
+                    }.textInputAutocapitalization(.words).padding(4).background(.white).cornerRadius(7)
+                    
+                    ZStack {
+                        if hasOptions {
+                            Spacer().frame(height: 50)
+                            VStack(alignment: .center){
+                                ForEach(filteredIngredients, id: \.self){
+                                    ingredient in
+                                    Text(ingredient.name).frame(maxWidth: .infinity).padding(4).onTapGesture {
+                                        ingredientTracker.ingredientNames[indexNum] = ingredient.name
+                                        buttonTapped = true
+                                    }
+                                    Divider()
+                                }
+                                Button {
+                                    buttonTapped.toggle()
+                                    hasOptions.toggle()
+                                } label: {
+                                    Text("New Ingredient").foregroundColor(Color("BdazzledBlue")).fontWeight(.bold).frame(maxWidth: .infinity).padding(4)
+                                }
+                            }.frame(maxWidth: .infinity, maxHeight: .infinity).background(RoundedRectangle(cornerRadius: 6).foregroundColor(.white).shadow(radius: 4))
+                        }
+                    }
             }
         }
     }
